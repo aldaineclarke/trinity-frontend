@@ -20,7 +20,6 @@ import { FormsModule } from '@angular/forms';
 import { CheckoutFormComponent } from './Components/checkout-form/checkout-form.component';
 import { MAT_RADIO_DEFAULT_OPTIONS} from '@angular/material/radio';
 
-
 @NgModule({
   entryComponents:[ProductModalComponent],
   declarations: [
