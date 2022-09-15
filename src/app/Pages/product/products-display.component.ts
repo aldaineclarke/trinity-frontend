@@ -1,11 +1,11 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss']
+  selector: 'app-product-detail',
+  templateUrl: './products-display.component.html',
+  styleUrls: ['./products-display.component.scss']
 })
-export class ProductComponent {
+export class ProductDisplayComponent {
   @ViewChild("editableForms") editForms!: ElementRef<HTMLElement>;
 
   // constructor(private productService) { }

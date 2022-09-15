@@ -4,7 +4,7 @@ import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 import { LoginComponent } from './Pages/login/login.component';
 import { OrderComponent } from './Pages/order/order.component';
 import { PlumberComponent } from './Pages/plumber/plumber.component';
-import { ProductComponent } from './Pages/product/product.component';
+import { ProductDisplayComponent } from './Pages/product/products-display.component';
 import { TicketComponent } from './Pages/ticket/ticket.component';
 
 const routes: Routes = [
@@ -24,7 +24,7 @@ const routes: Routes = [
       },
       {
         path:"products",
-        component: ProductComponent,
+        component: ProductDisplayComponent,
       },
       {
         path:"tickets",
