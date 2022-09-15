@@ -11,12 +11,14 @@
   border-radius: 5px;
   height: 100vh;
   width: 100%;
+  padding: 1em 1em;
 }
 
 .main-container {
   box-shadow: 5px 4px 12px  rgba(0, 56, 255, 0.27);;
-  height: 34%;
+//   height: 34%;
   width: 40%;
+  padding: 3em;
 }
 
 // .main-container {
@@ -52,25 +54,27 @@
 .header {
   // width: 88px;
   height: 36px;
-  margin-left: 2em;
-  margin-top: 30px;
+//   margin-left: 2em;
+//   margin-top: 30px;
 
   font-family: "Poppins";
   font-style: normal;
-  font-weight: 600;
-  font-size: 24px;
+//   font-weight: 600;
+//   font-size: 24px;
   line-height: 36px;
   /* identical to box height */
+  justify-content: space-between;
   color: #005da4;
   display: flex;
 }
 form {
   margin-top: 2em;
-  padding-left: 6em;
+//   padding-left: 6em;
+margin: 0;
 }
 
 input {
-  width: 714px;
+  width: 100%;
   border: none;
   border-bottom: 1px solid #00ffff;
   padding: 5px 10px;
@@ -115,7 +119,7 @@ label {
   // margin-left: 20em;
   display: flex;
   justify-content: end;
-  margin-right: 7em;
+  margin-right: 0;
   gap: 20px;
 }
 
