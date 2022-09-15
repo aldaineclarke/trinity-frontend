@@ -1,0 +1,46 @@
+<section>
+    <table class="w-full">
+        <thead>
+            <tr>
+                <th>
+                    <button class="btn btn--danger">DELETE ALL</button>
+                </th>
+                <th>Plumber</th>
+                <th>Email Address</th>
+                <th>Status</th>
+                <th>Phone Number</th>
+                <th>Actions</th>
+                <th><button class="btn btn--success">Add Plumber</button></th>
+            </tr>
+        </thead>
+        <tbody #editableForms>
+            <!-- Tells angular to add the class with same name once editMode is true -->
+            <tr [class]="{editMode}">
+                <td class="text-center">
+                    <input type="checkbox" class="text-trinityBlue h-6 w-6">
+                </td>
+                <td>
+                    <input type="text" value="Anthony" name="plumbername" [disabled]="!editMode" >
+                </td>
+                <td>
+                    <input type="email" value="anthony@mailme.com" name="email" [disabled]="!editMode">
+                </td>
+                <td>
+                    <input type="text" value="Available" name="status" [disabled]="!editMode" >
+                </td>
+                <td>
+                    <input type="tel" value="876-746-9988" name="phone" [disabled]="!editMode" >
+                </td>
+                <td>
+                    <div class="actions flex gap-2">
+                        <button class="btn btn--info btn--sm" (click)="turnOnEditMode()" *ngIf="!editMode">Edit</button>
+                        <button class="btn btn--success btn--sm" *ngIf="editMode" (click)="getEditableData()">Update</button>
+                        <button class="btn btn--danger btn--sm" *ngIf="!editMode">Delete</button>
+                        <button class="btn btn--info btn--sm" *ngIf="editMode" (click)="turnOffEditMode()" >Cancel</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</section>
