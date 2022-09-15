@@ -18,13 +18,8 @@ import { LoginComponent } from './Pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { CheckoutFormComponent } from './Components/checkout-form/checkout-form.component';
-import { MatStepperModule } from '@angular/material/stepper';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule} from '@angular/material/form-field';
-import {MatRadioModule, MAT_RADIO_DEFAULT_OPTIONS} from '@angular/material/radio';
-import {MatDatepickerModule } from '@angular/material/datepicker';
-import { CheckoutComponent } from './Pages/checkout/checkout.component';
+import { MAT_RADIO_DEFAULT_OPTIONS} from '@angular/material/radio';
+
 
 @NgModule({
   entryComponents:[ProductModalComponent],
@@ -48,16 +43,17 @@ import { CheckoutComponent } from './Pages/checkout/checkout.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     MaterialModule,
     HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule
   ],
   providers: [
     {
     provide: MAT_RADIO_DEFAULT_OPTIONS,
     useValue: { color: 'primary' }
   },
+
   ],
   bootstrap: [AppComponent]
 })

@@ -10,28 +10,28 @@ import Swal from "sweetalert2";
 export class HandlerService {
 
   constructor() {
-    
+
    }
 
-  
+
   handleSuccess(){
 
   }
-  
+
   handleError(error: any, source$?:Observable<any>){
-    let message = "";
+    let message = "What";
     let reason = "";
     if(typeof error === 'string'){
       message = error;
       reason = "Server Error"
     }else if(error instanceof HttpErrorResponse){
         switch(error.statusText){
-          case "Not Found": 
+          case "Not Found":
               message = "Url requested has not been found";
               reason = "Server Error"
               break;
 
-          default: 
+          default:
         }
     }else if(typeof error === "object"){
         if(error.message){
@@ -49,7 +49,7 @@ export class HandlerService {
         customClass: {
           container: "swalContainer",
         },
-      
+
       })
 
     return of(null);
