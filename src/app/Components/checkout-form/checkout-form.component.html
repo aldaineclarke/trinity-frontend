@@ -3,35 +3,33 @@
   <mat-stepper [linear]="true" #stepper>
     <!--* Email Step -->
     <mat-step [stepControl]="emailForm" [editable]="true">
-      <form action="" [formGroup]="emailForm">
-        <ng-template matStepLabel class="step-label">
-          Enter your email</ng-template
-        >
 
+      <ng-template matStepLabel class="step-label">
+         Client recognition
+        </ng-template>
+
+      <form action="" [formGroup]="emailForm" *ngIf="switchTrigger == false" #EmailForm="ngForm">
         <div class="form-flex">
-          <mat-form-field appearance="fill">
-            <mat-label>Email</mat-label>
+          <mat-form-field appearance="standard">
+            <mat-label>Enter your email</mat-label>
             <input
               type="email"
               matInput
-              placeholder="Enter your email"
+              placeholder="example johndoe@mail.com"
               formControlName="email"
               required
             />
-          </mat-form-field>
-          <div class="errors" *ngIf="email?.invalid && email?.touched">
-            <span id="req1" *ngIf="email?.errors?.['required']"
-              >Your Email is Required
-            </span>
 
-            <span id="req2" *ngIf="email?.errors?.['pattern']"
-              >Enter a Valid Email</span
-            >
-          </div>
+            <mat-error *ngIf="email?.errors?.['required']">Your Email is Required</mat-error>
+            <mat-error *ngIf="email?.errors?.['pattern']">Enter a Valid Email</mat-error>
+
+          </mat-form-field>
+
+
         </div>
 
-        <div>
-          <button mat-raised-button matStepperNext>Next</button>
+        <div style="margin-top: 15px;">
+          <button mat-raised-button class="btn btn--sm"  (click)="findUser()">Next</button>
         </div>
       </form>
     </mat-step>
@@ -88,7 +86,7 @@
 
         <div>
           <button mat-button matStepperPrevious>Back</button>
-          <button mat-raised-button matStepperNext>Next</button>
+          <button mat-raised-button class="btn btn--sm" matStepperNext>Next</button>
         </div>
       </form>
     </mat-step>
@@ -117,7 +115,7 @@
 
         <div>
           <button mat-button matStepperPrevious>Back</button>
-          <button mat-raised-button matStepperNext>Next</button>
+          <button mat-raised-button class="btn btn--sm" matStepperNext>Next</button>
         </div>
       </form>
     </mat-step>
