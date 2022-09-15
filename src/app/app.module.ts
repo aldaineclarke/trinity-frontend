@@ -10,6 +10,7 @@ import { PlumberComponent } from './Pages/plumber/plumber.component';
 import { ProductComponent } from './Pages/product/product.component';
 import { TicketComponent } from './Pages/ticket/ticket.component';
 import { OrderComponent } from './Pages/order/order.component';
+import { LoginComponent } from './Pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { OrderComponent } from './Pages/order/order.component';
     PlumberComponent,
     ProductComponent,
     TicketComponent,
-    OrderComponent
+    OrderComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

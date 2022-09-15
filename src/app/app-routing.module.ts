@@ -1,16 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './Pages/dashboard/dashboard.component';
+import { LoginComponent } from './Pages/login/login.component';
 import { OrderComponent } from './Pages/order/order.component';
 import { PlumberComponent } from './Pages/plumber/plumber.component';
 import { ProductComponent } from './Pages/product/product.component';
 import { TicketComponent } from './Pages/ticket/ticket.component';
 
 const routes: Routes = [
+
   {
+    path:"admin/login",
+    component: LoginComponent
+  },
+  { 
     path:"admin",
     component:DashboardComponent,
     children:[
+
       {
         path:"plumbers",
         component: PlumberComponent,
