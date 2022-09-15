@@ -1,4 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Plumber } from 'src/app/Interfaces/plumber';
+import { PlumberService } from 'src/app/Services/plumber.service';
 
 @Component({
   selector: 'app-plumber',
@@ -8,7 +10,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 export class PlumberComponent implements OnInit {
   @ViewChild("editableForms") editForms!: ElementRef<HTMLElement>;
 
-  constructor() { }
+  constructor(private plumberService: PlumberService) { }
 
   editMode = false;
 
@@ -24,9 +26,10 @@ export class PlumberComponent implements OnInit {
     this.editMode = false;
   }
 
-  updatePlumber(){
-
-    
+  updatePlumber(data:Partial<Plumber>){
+    this.plumberService.updatePlumber(data._id as string,data).subscribe(()=>{
+      this.editMode = false;
+    });
   }
   getEditableData(){
     const inputs = this.editForms.nativeElement.querySelectorAll(".editMode input");
@@ -37,6 +40,8 @@ export class PlumberComponent implements OnInit {
           let inputElement = (input as HTMLInputElement);
           values.set(inputElement.name, inputElement.value);
     });
+
+    this.updatePlumber(Object.fromEntries(values));
   }
 
 }
