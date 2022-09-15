@@ -1,0 +1,82 @@
+header {
+  background: #ffffff;
+  max-height: 25vh;
+  width: 100%;
+  padding-bottom: 1.5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-family: "Inter", sans-serif;
+  box-shadow: 0px 3px 20px 5px rgba(0, 0, 0, 0.25);
+}
+
+// Logo styling
+.main-logo {
+  width: 53%;
+  height: 62%;
+  object-fit: cover;
+}
+
+// containfer for logo styling
+.logo-cont {
+  width: 100%;
+  height: 100%;
+  padding-left: 3%;
+}
+
+// main containers in header styling
+.logo-cont,
+.main-nav,
+.form-acc {
+  width: 33%;
+  margin-top: 2%;
+}
+
+// navigation links  styling
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-links > div > li {
+  list-style-type: none;
+  color: #005da4;
+  font-size: 16px;
+}
+
+.link1,
+.link2,
+.link3,
+.link4,
+.link5:hover {
+  cursor: pointer;
+}
+
+// Form accounts container styling
+.form-acc {
+  display: flex;
+  gap: 8%;
+  padding-left: 15%;
+}
+
+// Form links contianer styling
+.form-links-cont {
+  display: flex;
+  gap: 2%;
+  width: 100%;
+}
+
+.form-links-cont > div > a {
+  text-decoration: none;
+  color: #005da4;
+  font-size: 16px;
+}
+
+.form-links-cont > div > span {
+  color: #005da4;
+}
+
+// cart icon styling
+.bi-cart-fill {
+  color: #005da4;
+}
