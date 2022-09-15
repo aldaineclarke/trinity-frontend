@@ -15,15 +15,24 @@ export class PlumberService {
   constructor(private _http: HttpClient, private handler:HandlerService) { }
 
   getAllPlumbers():Observable<APIResponse<Plumber[]>>{
-    return this._http.get<APIResponse<Plumber[]>>(this.ENDPOINT);
+    return this._http.get<APIResponse<Plumber[]>>(this.ENDPOINT)
+    .pipe(
+      catchError(this.handler.handleError)
+    );
   }
 
   getSinglePlumber(id: string):Observable<APIResponse<Plumber>>{
-    return this._http.get<APIResponse<Plumber>>(this.ENDPOINT+id);
+    return this._http.get<APIResponse<Plumber>>(this.ENDPOINT+id)
+    .pipe(
+      catchError(this.handler.handleError)
+    );
   }
 
   createPlumber(data:Partial<Plumber[]>):Observable<APIResponse<Plumber>>{
-    return this._http.post<APIResponse<Plumber>>(this.ENDPOINT, data);
+    return this._http.post<APIResponse<Plumber>>(this.ENDPOINT, data)
+    .pipe(
+      catchError(this.handler.handleError)
+    );
   }
 
   updatePlumber(id:string, data:Partial<Plumber>):Observable<APIResponse<Plumber>>{
@@ -33,6 +42,9 @@ export class PlumberService {
     );
   }
   deletePlumber(id:string):Observable<APIResponse<Plumber>>{
-    return this._http.delete<APIResponse<Plumber>>(this.ENDPOINT+id);
+    return this._http.delete<APIResponse<Plumber>>(this.ENDPOINT+id)
+    .pipe(
+      catchError(this.handler.handleError)
+    );
   }
 }
