@@ -10,7 +10,7 @@
                 <th>Status</th>
                 <th>Phone Number</th>
                 <th>Actions</th>
-                <th><button class="rounded-3xl h-10 w-10  bg-trinityBlue inline-flex items-center justify-center text-blue-900" title="Add a new plumber"><i class="fa-solid fa-plus"></i></button></th>
+                <th><button class="rounded-3xl h-10 w-10  bg-trinityBlue inline-flex items-center justify-center text-white" title="Add a new plumber"><i class="fa-solid fa-plus"></i></button></th>
             </tr>
         </thead>
         <tbody #editableForms>
@@ -19,17 +19,17 @@
                 <td class="text-center">
                     <input type="checkbox" class="text-trinityBlue h-6 w-6">
                 </td>
-                <td>
+                <td class="cursor">
                     <input type="text" [value]="plumber.plumbername" name="plumbername" [disabled]="!editMode" >
                 </td>
-                <td>
+                <td class="cursor">
                     <input type="email" [value]="plumber.email" name="email" [disabled]="!editMode">
                 </td>
-                <td>
+                <td class="cursor">
                     <input type="text" [value]="plumber.status" name="status" [disabled]="!editMode" >
                 </td>
-                <td>
-                    <input type="tel" [value]="plumber.phone" name="phone" [disabled]="!editMode">
+                <td class="cursor">
+                    <input type="tel" [value]="plumber.phone" name="phone" [disabled]="!editMode" >
                 </td>
                 <td>
                     <div class="actions flex gap-2">

@@ -9,11 +9,21 @@ td:not(:first-of-type){
     @apply text-start  text-sm font-thin text-gray-400;
 }
 
-.editable{
+.editMode{
+    i{
+        display:block;
+    }
+    input{
+        position:relative
+    }
 
 }
+    
 
 table td{
+    i{
+        display:none;
+    }
     cursor:context-menu;
     input:focus{
         outline:none;
