@@ -24,6 +24,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import {MatRadioModule, MAT_RADIO_DEFAULT_OPTIONS} from '@angular/material/radio';
 import {MatDatepickerModule } from '@angular/material/datepicker';
+import { CheckoutComponent } from './Pages/checkout/checkout.component';
 
 @NgModule({
   entryComponents:[ProductModalComponent],
@@ -39,7 +40,8 @@ import {MatDatepickerModule } from '@angular/material/datepicker';
     ProductDisplayComponent,
     TicketComponent,
     OrderComponent,
-    LoginComponent
+    LoginComponent,
+    CheckoutComponent
   ],
 
   imports: [
