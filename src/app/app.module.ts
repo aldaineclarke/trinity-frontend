@@ -7,6 +7,9 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 import { PlumberComponent } from './Pages/plumber/plumber.component';
+import { ProductComponent } from './Pages/product/product.component';
+import { TicketComponent } from './Pages/ticket/ticket.component';
+import { OrderComponent } from './Pages/order/order.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { PlumberComponent } from './Pages/plumber/plumber.component';
     FooterComponent,
     HeaderComponent,
     DashboardComponent,
-    PlumberComponent
+    PlumberComponent,
+    ProductComponent,
+    TicketComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
