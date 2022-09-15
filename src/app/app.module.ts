@@ -18,7 +18,6 @@ import { LoginComponent } from './Pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { CheckoutFormComponent } from './Components/checkout-form/checkout-form.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -54,7 +53,7 @@ import {MatDatepickerModule } from '@angular/material/datepicker';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatRadioModule,
-    MatDatepickerModule
+    MatDatepickerModule,
     MaterialModule,
     HttpClientModule,
     FormsModule,
