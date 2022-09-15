@@ -1,0 +1,16 @@
+<section>
+    <div class="dashboard-wrapper flex min-h-3/4">
+        <div class="sidebar w-[250px] border-trinityBlue border-r h-[80vh] flex justify-start p-4 flex-col">
+            <h1 class="text-5xl font-thin text-gray-400">HI {{"Kevin"}}</h1>
+            <ul class="flex flex-col text-gray-400 font-thin p-6 gap-3 pl-28 mt-20 ">
+                <li><a class="link">PLUMBER</a></li>
+                <li><a class="link">PRODUCT</a></li>
+                <li><a class="link">TICKET</a></li>
+                <li><a class="link">ORDER</a></li>
+            </ul>
+        </div>
+        <div class="content-wrapper flex-grow">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</section>
