@@ -1,7 +1,7 @@
 // ************************** Section 1 footer styling ******************************
 .sect1 {
   height: 40vh;
-  width: 100vw;
+  width: 100%;
   background: #70ceee;
   font-family: "Inter", sans-serif;
   display: flex;
@@ -70,7 +70,7 @@
 // *************************** Section 2 footer styling ********************************
 .sect2 {
   height: 60vh;
-  width: 100vw;
+  width: 100%;
   background: #edfbff;
   display: flex;
   flex-direction: column;
@@ -193,4 +193,29 @@
   cursor: pointer;
   background: #067bd5;
   transition: all 0.3s ease;
+}
+
+// Copyright section styling
+.copy-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5%;
+  width: 50%;
+}
+
+// copyright text styling
+.copy-text-cont {
+  font-size: 15px;
+  color: #005da4;
+}
+
+// container for copyright icon styling
+.copy-icon-cont {
+  line-height: 1px;
+}
+
+// copyright icon styling
+.bi-c-circle {
+  color: #005da4;
 }
