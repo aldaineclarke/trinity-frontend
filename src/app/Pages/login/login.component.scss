@@ -2,16 +2,16 @@
 //     border: 1px solid #6D6D6D;
 
 // }
-.border {
-  box-sizing: border-box;
+.bord {
+//   box-sizing: border-box;
   justify-content: center;
   align-items: center;
   display: flex;
-  box-shadow: 5px 4px 12px rgba(139, 89, 9, 0.27);
-  border-radius: 5px;
-  height: 100vh;
+
+  max-height:50%;
   width: 100%;
-  padding: 1em 1em;
+  padding: 10em 4em;
+ 
 }
 
 .main-container {
