@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatStepper } from '@angular/material/stepper';
+import { CheckoutComponent } from 'src/app/Pages/checkout/checkout.component';
 
 @Component({
   selector: 'app-checkout-form',
@@ -8,7 +10,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class CheckoutFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(@Inject(CheckoutComponent) private parent: CheckoutComponent) { }
+
+  // This is used to turn off the matstepper form when the login user form is active
+  @ViewChild('stepper') stepper !: MatStepper;
+  @Input('switchTrigger') switchTrigger : boolean = false;
+
+  emailVal !: string;
 
    emailForm = new FormGroup({
     email : new FormControl('' , [Validators.required])
@@ -32,7 +40,18 @@ export class CheckoutFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  intializeForm(){
+  findUser(){
+    this.emailVal = this.emailForm.value.email;
+
+    if(this.emailForm.valid){
+      if(this.emailVal == 'bob'){
+        this.stepper.next();
+
+      }else{
+       this.parent.changeSwitch();
+
+      }
+    }
 
   }
 
