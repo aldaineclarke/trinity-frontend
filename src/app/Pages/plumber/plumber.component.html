@@ -15,31 +15,31 @@
         </thead>
         <tbody #editableForms>
             <!-- Tells angular to add the class with same name once editMode is true -->
-            <tr [class]="{editMode}">
+            <tr [class]="{editMode}" *ngFor="let plumber of plumbers">
                 <td class="text-center">
                     <input type="checkbox" class="text-trinityBlue h-6 w-6">
                 </td>
                 <td>
-                    <input type="text" value="Anthony" name="plumbername" [disabled]="!editMode" >
+                    <input type="text" [value]="plumber.plumbername" name="plumbername" [disabled]="!editMode" >
                 </td>
                 <td>
-                    <input type="email" value="anthony@mailme.com" name="email" [disabled]="!editMode">
+                    <input type="email" [value]="plumber.email" name="email" [disabled]="!editMode">
                 </td>
                 <td>
-                    <input type="text" value="Available" name="status" [disabled]="!editMode" >
+                    <input type="text" [value]="plumber.status" name="status" [disabled]="!editMode" >
                 </td>
                 <td>
-                    <input type="tel" value="876-746-9988" name="phone" [disabled]="!editMode" >
+                    <input type="tel" [value]="plumber.phone" name="phone" [disabled]="!editMode">
                 </td>
                 <td>
                     <div class="actions flex gap-2">
                         <button class="btn btn--info btn--sm" (click)="turnOnEditMode()" *ngIf="!editMode">Edit</button>
                         <button class="btn btn--success btn--sm" *ngIf="editMode" (click)="getEditableData()">Update</button>
-                        <button class="btn btn--danger btn--sm" *ngIf="!editMode">Delete</button>
+                        <button class="btn btn--danger btn--sm" *ngIf="!editMode" (click)="deletePlumber(plumber._id)">Delete</button>
                         <button class="btn btn--info btn--sm" *ngIf="editMode" (click)="turnOffEditMode()" >Cancel</button>
                     </div>
                 </td>
-                <input type="hidden" name="_id" value = "jibberish">
+                <input type="hidden" name="_id" [value] = "plumber._id">
             </tr>
         </tbody>
     </table>

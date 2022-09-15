@@ -13,8 +13,10 @@ export class PlumberComponent implements OnInit {
   constructor(private plumberService: PlumberService) { }
 
   editMode = false;
+  plumbers:Plumber[] = []; 
 
   ngOnInit(): void {
+    this.getAllPlumbers();
   }
 
   turnOnEditMode(){
@@ -42,6 +44,19 @@ export class PlumberComponent implements OnInit {
     });
 
     this.updatePlumber(Object.fromEntries(values));
+  }
+
+  getAllPlumbers(){
+    this.plumberService.getAllPlumbers().subscribe((response)=>{
+      this.plumbers = response.data;
+    })
+  }
+  deletePlumber(id: string){
+    this.plumberService.deletePlumber(id).subscribe(()=>{
+      this.plumbers = this.plumbers.filter((plumber)=>{
+        return plumber._id !== id;
+      })
+    })
   }
 
 }
