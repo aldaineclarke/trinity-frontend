@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, Validators} from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
@@ -6,8 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  plumForm = this.fb.group({ 
+    email : ['', Validators.required],
+    password : ['', Validators.required]
+  
 
-  constructor() { }
+
+
+  })
+
+  submit(){
+    console.log(this.plumForm.value)
+    
+  }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }

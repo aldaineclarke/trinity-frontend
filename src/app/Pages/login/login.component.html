@@ -10,12 +10,12 @@
         </h2>
       </div>
 
-      <form action="/action_page.php">
+      <form [formGroup]="plumForm" >
 
         <div class="form-group">
           <label for="email">Email</label><br />
           <input
-         
+         formControlName="email"
             type="email"
             id="email"
             name="email"
@@ -27,7 +27,7 @@
         <div class="form-group">
           <label for="password">Password</label><br />
           <input
-          
+          formControlName="password"
             type="password"
             id="password"
             name="password"
@@ -37,10 +37,20 @@
         </div>
 
         <div class="buwrapper">
-          <button type="submit"  class="button button1">sign in</button>
-          <button  type="submit"  class="button button2">create user</button>
+          <button type="submit" (click)="submit()" [disabled]="!plumForm.valid"      class="button button1">sign in</button>  
+          <button      class="button button2">create user</button>
         </div>
+        <!-- because of the background color of the bottom the grey out color will not be seen you can console the button sending out info once info is there -->
+<!--  
+        <div class="buwrapper">
+            <button  type="submit"     class="button button2">create user</button>
+          </div> -->
+
+
+        
       </form>
+    
+
     </div>
   </div>
 </div>

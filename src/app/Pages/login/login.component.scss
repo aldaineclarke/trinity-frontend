@@ -3,74 +3,38 @@
 
 // }
 .bord {
-//   box-sizing: border-box;
   justify-content: center;
   align-items: center;
   display: flex;
 
-  max-height:50%;
+  max-height: 50%;
   width: 100%;
   padding: 10em 4em;
- 
 }
 
 .main-container {
-  box-shadow: 5px 4px 12px  rgba(0, 56, 255, 0.27);;
-//   height: 34%;
+  box-shadow: 5px 4px 12px rgba(0, 56, 255, 0.27);
+  //   height: 34%;
   width: 40%;
   padding: 3em;
 }
 
-// .main-container {
-//   box-sizing: border-box;
-//   justify-content: center;
-//   align-items: center;
-//   display: flex;
-//   box-shadow: 5px 4px 12px rgba(139, 89, 9, 0.27);
-//   border-radius: 5px;
-//   height: 100vh;
-//   width: 100%;
-// }
-
-
-
-// h4{
-// width: 88px;
-// height: 36px;
-// left: 501px;
-// top: 454px;
-
-// font-family: 'Poppins';
-// font-style: normal;
-// font-weight: 600;
-// font-size: 24px;
-// line-height: 36px;
-// /* identical to box height */
-
-// text-align: center;
-
-// color: #005DA4;
-// }
 .header {
-  // width: 88px;
   height: 36px;
-//   margin-left: 2em;
-//   margin-top: 30px;
 
   font-family: "Poppins";
   font-style: normal;
-//   font-weight: 600;
-//   font-size: 24px;
+
   line-height: 36px;
-  /* identical to box height */
+
   justify-content: space-between;
   color: #005da4;
   display: flex;
 }
 form {
   margin-top: 2em;
-//   padding-left: 6em;
-margin: 0;
+
+  margin: 0;
 }
 
 input {
@@ -79,12 +43,6 @@ input {
   border-bottom: 1px solid #00ffff;
   padding: 5px 10px;
   outline: none;
-  //   height: 0px;
-  //   left: 518px;
-  //   top: 570px;
-  //   color: black;
-
-  //    border: 1px solid #00ffff;
 }
 
 label {
@@ -105,16 +63,7 @@ label {
 
   color: #6d6d6d;
 }
-// .button{
-// box-sizing: border-box;
-// width: 67px;
-// height: 20px;
-// left: 1035px;
-// top: 674px;
 
-// border: 1px solid #6D6D6D;
-// border-radius: 2px;
-// }
 .buwrapper {
   // margin-left: 20em;
   display: flex;
@@ -134,7 +83,7 @@ label {
   margin: 12px 4px;
   transition-duration: 0.4s;
   cursor: pointer;
-  // box-shadow: 5px 4px 12px rgba(0, 56, 255, 0.27);
+
   border-radius: 5px;
 }
 .button1 {
