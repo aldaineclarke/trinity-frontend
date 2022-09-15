@@ -13,7 +13,7 @@ const routes: Routes = [
     path:"admin/login",
     component: LoginComponent
   },
-  { 
+  {
     path:"admin",
     component:DashboardComponent,
     children:[
