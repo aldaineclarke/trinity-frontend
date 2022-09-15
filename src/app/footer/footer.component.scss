@@ -1,20 +1,221 @@
 // ************************** Section 1 footer styling ******************************
 .sect1 {
   height: 40vh;
-  width: 100vw;
+  width: 100%;
   background: #70ceee;
   font-family: "Inter", sans-serif;
+  display: flex;
+  justify-content: center;
 }
 
+// overall content styling
 .sec1-info {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  width: 80%;
+}
+
+// text content styling
+.text-cont {
+  width: 70%;
+}
+
+// text styling
+.text-cont > p {
+  font-size: 25px;
+  color: #ffffff;
+}
+
+// main button container styling
+.btn-group {
+  display: flex;
+  gap: 11%;
+  padding-left: 3%;
+  width: 30%;
+}
+
+// Join Today button styling
+.btn1 > button {
+  padding: 10px 36px;
+  font-size: 15px;
+  background: #18a0fb;
+  color: #ffffff;
+  border-radius: 6px;
+  border: none;
+}
+
+.btn1 > button:hover {
+  background: #1884cb;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+// Contact Us button styling
+.btn2 > button {
+  padding: 10px 36px;
+  font-size: 15px;
+  border-radius: 6px;
+  color: #18a0fb;
+  background: #ffffff;
+  border: none;
+}
+
+.btn2 > button:hover {
+  background: #18a0fb;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 // *************************** Section 2 footer styling ********************************
 .sect2 {
   height: 60vh;
-  width: 100vw;
+  width: 100%;
   background: #edfbff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+}
+
+// Main information in second section of footer
+.sec2-info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  margin-top: 80px;
+  border-bottom: 1.5px solid #70ceee;
+}
+
+// Text group link 1 styling
+.sec2-textgroup1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 23%;
+  width: 33%;
+}
+
+.sec2-textgroup1 > div > p {
+  font-size: 14px;
+  color: #005da4;
+  font-weight: 700;
+}
+
+.sec2-textgroup1 > div > p:hover {
+  cursor: pointer;
+}
+
+// Logo container styling
+.sec2-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 33%;
+}
+
+// logo styling
+.sec2-logo > img {
+  width: 25%;
+  height: 35%;
+  object-fit: cover;
+}
+
+// Text group link 2 styling
+.sec2-textgroup2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 23%;
+  width: 33%;
+}
+
+.sec2-textgroup2 > div > p {
+  font-size: 14px;
+  color: #005da4;
+  font-weight: 700;
+}
+
+.sec2-textgroup2 > div > p:hover {
+  cursor: pointer;
+}
+
+// Social Media Section styling
+.sec2-socials {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 25%;
+  height: 40%;
+  margin-top: 10px;
+}
+
+// Social Icons styling
+.twitter-cont,
+.facebook-cont,
+.instagram-cont,
+.whatsapp-cont {
+  line-height: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #005da4;
+  width: 10%;
+  height: 22%;
+  border-radius: 50%;
+  color: #ffffff;
+}
+
+// twitter icon styling
+.twitter-cont:hover {
+  cursor: pointer;
+  background: #067bd5;
+  transition: all 0.3s ease;
+}
+
+// whatsapp icon styling
+.whatsapp-cont:hover {
+  cursor: pointer;
+  background: #067bd5;
+  transition: all 0.3s ease;
+}
+
+// facebook icon styling
+.facebook-cont:hover {
+  cursor: pointer;
+  background: #067bd5;
+  transition: all 0.3s ease;
+}
+
+// instagram icon styling
+.instagram-cont:hover {
+  cursor: pointer;
+  background: #067bd5;
+  transition: all 0.3s ease;
+}
+
+// Copyright section styling
+.copy-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5%;
+  width: 50%;
+}
+
+// copyright text styling
+.copy-text-cont {
+  font-size: 15px;
+  color: #005da4;
+}
+
+// container for copyright icon styling
+.copy-icon-cont {
+  line-height: 1px;
+}
+
+// copyright icon styling
+.bi-c-circle {
+  color: #005da4;
 }

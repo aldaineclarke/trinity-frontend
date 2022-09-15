@@ -1,0 +1,29 @@
+<section class="w-[65%] border grid grid-cols-3 m-auto" >
+    <div *ngFor="let prod of products"
+    class="p-5 hover:cursor-pointer hover:border hover:shadow-md hover:shadow-[#70CEEE]"
+    (click)="openDialog(prod)"
+    >
+        <div>
+            <img src="/assets/pngegg (81) 1.png" alt="">
+        </div>
+        <div class="text-center">
+            <h1 class="text-xl font-bold text-[#005DA4] py-2">1 Inch valve water pump</h1>
+            <p class="px-2">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas magnam tempore consequuntur odit accusamus.
+            </p>
+        </div>
+        <div class="flex justify-between items-center px-5 py-2">
+            <h2 class="text-[#70CEEE] text-xl font-medium">$2500.00</h2>
+            <div class="flex items-center">
+                <label class="rating-label" dir="rtl">
+                    <input
+                      class="rating rating--nojs"
+                      max="5"
+                      step="1"
+                      type="range"
+                      value="{{prod}}">
+                  </label>
+            </div>
+        </div>
+    </div>
+</section>

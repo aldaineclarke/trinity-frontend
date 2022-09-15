@@ -1,0 +1,16 @@
+.link{
+    transition: font-weight 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.link:hover, .active .link{
+    @apply text-trinityBlue font-semibold;
+}
+
+.content-wrapper{
+    overflow:hidden;
+    padding: 1rem;
+}
+
+.sidebar li{
+    cursor: pointer;
+}

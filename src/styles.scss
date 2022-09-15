@@ -2,8 +2,11 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+//  To apply this font type this for the property ---->  font-family: "Inter", sans-serif;
 
 * {
   box-sizing: border-box;
@@ -11,5 +14,25 @@
   margin: 0;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.btn{
+  display:inline-flex;
+  padding: 5px 10px;
+  @apply bg-trinityBlue text-[#0074C1] font-semibold rounded;
+}
+
+.btn--sm{
+  @apply text-xs;
+}
+
+.btn--danger{
+  @apply bg-[#FB0000] text-white;
+}
+.btn--info{
+  @apply  text-white;
+}
+.btn--success{
+  @apply bg-green-500 text-white;
+}
+
+
