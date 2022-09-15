@@ -3,6 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './Modules/material/material.module';
+import { ProductModalComponent } from './Components/product-modal/product-modal.component';
+import { ProductCardComponent } from './Components/product-card/product-card.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { DashboardComponent } from './Pages/dashboard/dashboard.component';
@@ -15,8 +19,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
+  entryComponents:[ProductModalComponent],
   declarations: [
     AppComponent,
+    ProductModalComponent,
+    ProductCardComponent,
     FooterComponent,
     HeaderComponent,
     DashboardComponent,
@@ -29,6 +36,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule
