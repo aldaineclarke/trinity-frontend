@@ -41,13 +41,6 @@ header {
   list-style-type: none;
   color: #005da4;
   font-size: 16px;
-}
-
-.link1,
-.link2,
-.link3,
-.link4,
-.link5:hover {
   cursor: pointer;
 }
 
@@ -57,24 +50,6 @@ header {
   gap: 8%;
   padding-left: 15%;
 }
-
-// Form links contianer styling
-.form-links-cont {
-  display: flex;
-  gap: 2%;
-  width: 100%;
-}
-
-.form-links-cont > div > a {
-  text-decoration: none;
-  color: #005da4;
-  font-size: 16px;
-}
-
-.form-links-cont > div > span {
-  color: #005da4;
-}
-
 // cart icon styling
 .bi-cart-fill {
   color: #005da4;
