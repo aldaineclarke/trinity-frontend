@@ -28,7 +28,7 @@ export class ProductService {
     );
   }
 
-  createProduct(data:Partial<Product[]>):Observable<APIResponse<Product>>{
+  createProduct(data:Partial<Product>):Observable<APIResponse<Product>>{
     return this._http.post<APIResponse<Product>>(this.ENDPOINT, data)
     .pipe(
       catchError(this.handler.handleError)
