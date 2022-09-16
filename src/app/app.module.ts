@@ -11,7 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 import { PlumberComponent } from './Pages/plumber/plumber.component';
-import { ProductDisplayComponent } from './Pages/product/products-display.component';
+import { ProductDisplayComponent } from './Pages/product-display/products-display.component';
 import { TicketComponent } from './Pages/ticket/ticket.component';
 import { OrderComponent } from './Pages/order/order.component';
 import { LoginComponent } from './Pages/login/login.component';
@@ -19,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { CheckoutFormComponent } from './Components/checkout-form/checkout-form.component';
 import { MAT_RADIO_DEFAULT_OPTIONS} from '@angular/material/radio';
+import { CheckoutComponent } from './Pages/checkout/checkout.component';
 
 
 @NgModule({
@@ -29,13 +30,13 @@ import { MAT_RADIO_DEFAULT_OPTIONS} from '@angular/material/radio';
     ProductCardComponent,
     FooterComponent,
     HeaderComponent,
-    CheckoutFormComponent,
     DashboardComponent,
     PlumberComponent,
     ProductDisplayComponent,
     TicketComponent,
     OrderComponent,
     LoginComponent,
+    CheckoutFormComponent,
     CheckoutComponent
   ],
 
