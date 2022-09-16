@@ -5,13 +5,19 @@ import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 import { LoginComponent } from './Pages/login/login.component';
 import { OrderComponent } from './Pages/order/order.component';
 import { PlumberComponent } from './Pages/plumber/plumber.component';
-import { ProductDisplayComponent } from './Pages/product/products-display.component';
 import { ProductsComponent } from './Pages/products/products.component';
 import { ProductDisplayComponent } from './Pages/product-display/products-display.component';
 import { TicketComponent } from './Pages/ticket/ticket.component';
 
 const routes: Routes = [
-  {path: "", component: ProductsComponent},
+  {
+    path: "", 
+    component: ProductsComponent
+  },
+  {
+    path:"products",
+    component: ProductsComponent,
+  },
   {
     path:"admin/login",
     component: LoginComponent

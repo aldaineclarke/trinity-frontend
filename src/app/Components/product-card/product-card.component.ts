@@ -1,7 +1,7 @@
 import { MatDialog } from '@angular/material/dialog';
 import { Component, Input, OnInit } from '@angular/core';
 import { ProductModalComponent } from '../product-modal/product-modal.component';
-import { Product } from 'src/app/Interfaces/pruduct';
+import { Product } from '../../Interfaces/product';
 
 @Component({
   selector: 'app-product-card',
