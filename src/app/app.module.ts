@@ -11,13 +11,16 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 import { PlumberComponent } from './Pages/plumber/plumber.component';
-import { ProductDisplayComponent } from './Pages/product/products-display.component';
+import { ProductDisplayComponent } from './Pages/product-display/products-display.component';
 import { TicketComponent } from './Pages/ticket/ticket.component';
 import { OrderComponent } from './Pages/order/order.component';
 import { LoginComponent } from './Pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { ProductsComponent } from './Pages/products/products.component';
+import { CheckoutFormComponent } from './Components/checkout-form/checkout-form.component';
+import { MAT_RADIO_DEFAULT_OPTIONS} from '@angular/material/radio';
+import { CheckoutComponent } from './Pages/checkout/checkout.component';
 
 @NgModule({
   entryComponents:[ProductModalComponent],
@@ -33,18 +36,27 @@ import { ProductsComponent } from './Pages/products/products.component';
     TicketComponent,
     OrderComponent,
     LoginComponent,
-    ProductsComponent
+    ProductsComponent,
+    CheckoutFormComponent,
+    CheckoutComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     MaterialModule,
     HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {
+    provide: MAT_RADIO_DEFAULT_OPTIONS,
+    useValue: { color: 'primary' }
+  },
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
