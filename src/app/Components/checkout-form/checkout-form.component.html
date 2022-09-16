@@ -3,12 +3,16 @@
   <mat-stepper [linear]="true" #stepper>
     <!--* Email Step -->
     <mat-step [stepControl]="emailForm" [editable]="true">
-
       <ng-template matStepLabel class="step-label">
-         Client recognition
-        </ng-template>
+        Client recognition
+      </ng-template>
 
-      <form action="" [formGroup]="emailForm" *ngIf="switchTrigger == false" #EmailForm="ngForm">
+      <form
+        action=""
+        [formGroup]="emailForm"
+        *ngIf="switchTrigger == false"
+        #EmailForm="ngForm"
+      >
         <div class="form-flex">
           <mat-form-field appearance="standard">
             <mat-label>Enter your email</mat-label>
@@ -20,16 +24,19 @@
               required
             />
 
-            <mat-error *ngIf="email?.errors?.['required']">Your Email is Required</mat-error>
-            <mat-error *ngIf="email?.errors?.['pattern']">Enter a Valid Email</mat-error>
-
+            <mat-error *ngIf="email?.errors?.['required']"
+              >Your Email is Required</mat-error
+            >
+            <mat-error *ngIf="email?.errors?.['email']"
+              >Enter a Valid Email</mat-error
+            >
           </mat-form-field>
-
-
         </div>
 
-        <div style="margin-top: 15px;">
-          <button mat-raised-button class="btn btn--sm"  (click)="findUser()">Next</button>
+        <div class="btn-cont">
+          <button mat-raised-button class="btn btn--sm" matStepperNext>
+            Next
+          </button>
         </div>
       </form>
     </mat-step>
@@ -37,11 +44,12 @@
 
     <!--* Card details Step -->
     <mat-step [stepControl]="cardForm">
-      <form action="" [formGroup]="cardForm">
+      <form action="" [formGroup]="cardForm" #payForm="ngForm">
         <ng-template matStepLabel class="step-label">
           Enter card information</ng-template
         >
 
+        <mat-label>Enter your card type</mat-label>
         <div class="radio-cont">
           <mat-radio-group
             aria-label="Select an option"
@@ -50,74 +58,119 @@
           >
             <mat-radio-button value="visa">Visa</mat-radio-button>
             <mat-radio-button value="paypal">Paypal</mat-radio-button>
-            <mat-radio-button value="visa">Visa</mat-radio-button>
-            <mat-radio-button value="visa">Visa</mat-radio-button>
+            <mat-error
+              *ngIf="cardType?.errors?.['required'] && payForm.submitted"
+              >Your card type is required</mat-error
+            >
           </mat-radio-group>
         </div>
 
-        <mat-form-field appearance="fill">
-          <mat-label>Enter card number</mat-label>
-          <input
-            type="text"
-            matInput
-            placeholder="Enter your card number"
-            formControlName="cardNumber"
-            required
-          />
-        </mat-form-field>
-
-        <div>
+        <div *ngIf="cardType?.value == 'visa'">
+          <mat-form-field appearance="fill">
+            <mat-label>Enter card number</mat-label>
+            <input
+              type="number"
+              matInput
+              placeholder="Enter your card number"
+              formControlName="cardNumber"
+              required
+            />
+            <mat-error *ngIf="cardNumber?.errors?.['required']"
+              >Your card type is required</mat-error
+            >
+            <mat-error *ngIf="cardNumber?.errors?.['maxLength']"
+              >Your card number must be 16 characters</mat-error
+            >
+          </mat-form-field>
           <div>
-            <mat-label>Expiry Date</mat-label>
-          </div>
-
-          <div>
-            <mat-form-field>
+            <div>
+              <mat-label>Expiry Date</mat-label>
+            </div>
+            <mat-form-field appearance="fill">
+              <mat-label>Enter CVV</mat-label>
               <input
-                type="text"
+                type="number"
                 matInput
-                placeholder="expiry year and month"
-                formControlName="expiryDate"
+                placeholder="Enter your CVV"
+                formControlName="cvv"
                 required
               />
+              <mat-error *ngIf="cvv?.errors?.['required']"
+                >Your cvv is required</mat-error
+              >
+              <mat-error *ngIf="cvv?.errors?.['maxLength']"
+                >Your cvv must be at most 4 characters</mat-error
+              >
+              <mat-error *ngIf="cvv?.errors?.['minLength']"
+                >Your cvv must be at least 3 characters</mat-error
+              >
             </mat-form-field>
+            <div>
+              <mat-form-field>
+                <mat-label>Enter Expiry Year and Month</mat-label>
+                <input
+                matInput
+                [matDatepicker]="datepicker"
+                placeholder="expiry year and month"
+                formControlName="expiryDate"
+                required />
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="datepicker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #datepicker>
+                  <mat-datepicker-actions>
+                    <button mat-button matDatepickerCancel>Cancel</button>
+                    <button
+                      mat-raised-button
+                      color="primary"
+                      matDatepickerApply
+                    >
+                      Apply
+                    </button>
+                  </mat-datepicker-actions>
+                </mat-datepicker>
+                <mat-error *ngIf="expiryDate?.errors?.['minLength']"
+                >Your expiry date is required</mat-error
+              >
+              </mat-form-field>
+            </div>
           </div>
         </div>
 
-        <div>
+        <div class="btn-cont">
           <button mat-button matStepperPrevious>Back</button>
-          <button mat-raised-button class="btn btn--sm" matStepperNext>Next</button>
+          <button
+            mat-raised-button
+            class="btn btn--sm"
+            (click)="checkCardType()"
+          >
+            Next
+          </button>
         </div>
       </form>
     </mat-step>
     <!-- Card details End -->
 
     <!--* Confirmation Step -->
-    <mat-step [stepControl]="confirmForm">
-      <form action="" [formGroup]="confirmForm">
-        <ng-template matStepLabel class="step-label">
-          Confirm payment</ng-template
-        >
-
+    <mat-step>
+      <div class="order-grid">
         <div>
-          <mat-label>Confirmation</mat-label>
-        </div>
-
-        <div class="radio-cont">
-          <mat-radio-group
-            aria-label="Select an option"
-            formControlName="confirm"
+          <ng-template matStepLabel class="step-label">
+            Confirm payment</ng-template
           >
-            <mat-radio-button value="confirm">Confirm</mat-radio-button>
-            <mat-radio-button value="cancel">Cancel</mat-radio-button>
-          </mat-radio-group>
         </div>
-
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-raised-button class="btn btn--sm" matStepperNext>Next</button>
+        <div class="btn-cont">
+          <button class="info btn--sm" mat-button matStepperPrevious>
+            Back
+          </button>
+          <button class="btn btn--success btn--sm" (click)="confirmOrder()">
+            Confirm
+          </button>
+          <button class="btn btn--sm btn--danger">Cancel</button>
         </div>
-      </form>
+      </div>
     </mat-step>
     <!-- Confirmation End -->
   </mat-stepper>
