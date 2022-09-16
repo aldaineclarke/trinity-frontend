@@ -28,7 +28,7 @@ export class PlumberService {
     );
   }
 
-  createPlumber(data:Partial<Plumber[]>):Observable<APIResponse<Plumber>>{
+  createPlumber(data:Partial<Plumber>):Observable<APIResponse<Plumber>>{
     return this._http.post<APIResponse<Plumber>>(this.ENDPOINT, data)
     .pipe(
       catchError(this.handler.handleError)
