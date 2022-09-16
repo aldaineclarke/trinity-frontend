@@ -12,8 +12,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 
 const MaterialComponents = [
     MatButtonModule,
-  MatDialogModule,
-  MatTabsModule,,
+    MatDialogModule,
+    MatTabsModule,
     TextFieldModule,
     MatStepperModule,
     MatInputModule,
