@@ -17,11 +17,11 @@ import { OrderComponent } from './Pages/order/order.component';
 import { LoginComponent } from './Pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { ProductsComponent } from './Pages/products/products.component';
 import { CheckoutFormComponent } from './Components/checkout-form/checkout-form.component';
 import { MAT_RADIO_DEFAULT_OPTIONS} from '@angular/material/radio';
 import { CheckoutComponent } from './Pages/checkout/checkout.component';
 import { CartPageComponent } from './Pages/cart-page/cart-page.component';
-
 
 @NgModule({
   entryComponents:[ProductModalComponent],
@@ -37,6 +37,7 @@ import { CartPageComponent } from './Pages/cart-page/cart-page.component';
     TicketComponent,
     OrderComponent,
     LoginComponent,
+    ProductsComponent,
     CheckoutFormComponent,
     CheckoutComponent,
     CartPageComponent

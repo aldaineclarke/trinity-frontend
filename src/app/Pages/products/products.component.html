@@ -1,0 +1,83 @@
+<section class="my-[5rem] w-[90%] m-auto grid grid-cols-[2.8fr_7.2fr] gap-10">
+    <aside>
+        <div class="border-2 border-[#70CEEE] shadow-lg shadow-blue-100">
+            <div class="flex gap-3 bg-[#70CEEE] text-white uppercase text-2xl font-bold justify-center items-center p-3">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <h2>What is your query</h2>
+            </div>
+
+            <ul class="text-[#70CEEE] p-10">
+                <li class="flex gap-5 justify-center items-center py-3 border-b border-[#70CEEE]">
+                    <i class="fa-solid fa-caret-right"></i>
+                    <p>clogged toilet, it cannot flush</p>
+                </li>
+                <li class="flex gap-5 justify-center items-center py-3 border-b border-[#70CEEE]">
+                    <i class="fa-solid fa-caret-right"></i>
+                    <p>clogged toilet, it cannot flush</p>
+                </li>
+                <li class="flex gap-5 justify-center items-center py-3 border-b border-[#70CEEE]">
+                    <i class="fa-solid fa-caret-right"></i>
+                    <p>clogged toilet, it cannot flush</p>
+                </li>
+                <li class="flex gap-5 justify-center items-center py-3 border-b border-[#70CEEE]">
+                    <i class="fa-solid fa-caret-right"></i>
+                    <p>clogged toilet, it cannot flush</p>
+                </li>
+                <li class="flex gap-5 justify-center items-center py-3 border-b border-[#70CEEE]">
+                    <i class="fa-solid fa-caret-right"></i>
+                    <p>clogged toilet, it cannot flush</p>
+                </li>
+                <li class="flex gap-5 justify-center items-center py-3 border-b border-[#70CEEE]">
+                    <i class="fa-solid fa-caret-right"></i>
+                    <p>clogged toilet, it cannot flush</p>
+                </li>
+                <li class="flex gap-5 justify-center items-center py-3 border-b border-[#70CEEE]">
+                    <i class="fa-solid fa-caret-right"></i>
+                    <p>clogged toilet, it cannot flush</p>
+                </li>
+                <li class="flex gap-5 justify-center items-center py-3 border-b border-[#70CEEE]">
+                    <i class="fa-solid fa-caret-right"></i>
+                    <p>clogged toilet, it cannot flush</p>
+                </li>
+                <li class="flex gap-5 justify-center items-center py-3 border-b border-[#70CEEE]">
+                    <i class="fa-solid fa-caret-right"></i>
+                    <p>clogged toilet, it cannot flush</p>
+                </li>
+                <li class="flex gap-5 justify-center items-center py-3 border-b border-[#70CEEE]">
+                    <i class="fa-solid fa-caret-right"></i>
+                    <p>clogged toilet, it cannot flush</p>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ///////////////////////////////////// -->
+
+        <!-- <div class="bg-[url('/assets/img/asideAds.png')] mt-10 h-[905px] bg-no-repeat bg- relative"> -->
+        <div class="mt-10 w-fit h-[850px] relative">
+            <img src="/assets/img/asideAds.png" alt="" class="h-full">
+            <div class="text-white w-full h-full backdrop-brightness-[0.3] absolute top-0 uppercase">
+                <p class="font-bold text-6xl pt-40 pb-2 px-20 border-b w-fit">ads</p>
+                <p class="font-bold text-8xl text-center">not</p>
+                <p class="text-9xl font-thin">down</p>
+                <p class="font-medium text-4xl px-20 border-b w-fit ml-auto">sight</p>
+            </div>
+        </div>
+    </aside>
+
+    <div class="border">
+        <div>
+            <img src="/assets/img/pipeGold.png" alt="" class="w-full">
+        </div>
+        <div class="flex gap-5">
+            <div class="bg-blue-500 text-white w-full">Dummy Text</div>
+            <div class="bg-blue-500 text-white w-full">Dummy Text</div>
+            <div class="bg-blue-500 text-white w-full">Dummy Text</div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-3">
+            <app-product-card [productsData]="prod"
+            *ngFor="let prod of products"
+            ></app-product-card>
+        </div>
+    </div>
+</section>
