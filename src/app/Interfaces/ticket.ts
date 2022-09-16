@@ -7,4 +7,5 @@ export interface Ticket{
     service: string;
     clientNote:string;
     plumber:string; 
+    createdAt: string;
 }

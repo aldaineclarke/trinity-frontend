@@ -22,6 +22,7 @@ import { CheckoutFormComponent } from './Components/checkout-form/checkout-form.
 import { MAT_RADIO_DEFAULT_OPTIONS} from '@angular/material/radio';
 import { CheckoutComponent } from './Pages/checkout/checkout.component';
 import { CartPageComponent } from './Pages/cart-page/cart-page.component';
+import { TicketEditComponent } from './Components/ticket-edit/ticket-edit.component';
 
 @NgModule({
   entryComponents:[ProductModalComponent],
@@ -40,7 +41,8 @@ import { CartPageComponent } from './Pages/cart-page/cart-page.component';
     ProductsComponent,
     CheckoutFormComponent,
     CheckoutComponent,
-    CartPageComponent
+    CartPageComponent,
+    TicketEditComponent,
   ],
 
   imports: [

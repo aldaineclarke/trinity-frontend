@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Ticket } from 'src/app/Interfaces/ticket';
 import { TicketService } from 'src/app/Services/ticket.service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { TicketEditComponent } from 'src/app/Components/ticket-edit/ticket-edit.component';
 
 @Component({
   selector: 'app-ticket',
@@ -14,56 +16,41 @@ export class TicketComponent implements OnInit {
   createMode = false;
   editMode = false;
   tickets: Ticket[] = [];
+  selectedTicket!: Ticket | undefined;
 
 
-  constructor(private ticketService: TicketService) { }
+  constructor(private ticketService: TicketService, public dialog: MatDialog) { }
+
+  openDialog(id?: string): void {
+    if(id){
+      this.selectedTicket = this.tickets.find((ticket)=>{
+        return ticket._id == id
+      }) as Ticket;
+    }else{
+      this.selectedTicket = undefined;
+    }
+    console.log(this.selectedTicket)
+    const dialogRef = this.dialog.open(TicketEditComponent, {
+      width: '40%',
+      minWidth:'400px',
+      data: this.selectedTicket
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result)
+      if(this.selectedTicket){
+        this.updateTicket(result);
+      }else{
+        this.createTicket(result);
+      }
+      this.getAllTickets();
+    });
+  }
+
 
   ngOnInit(): void {
+    this.getAllTickets();
   }
-  turnOnCreationMode(){
-    this.createMode = true;
-  }
-  toggleCreationMode(){
-    this.createMode = !this.createMode;
-  }
-  turnOffCreationMode(){
-    this.createMode = false;
-  }
-  turnOnEditMode(){
-    this.editMode = true;
-  }
-
-  turnOffEditMode(){
-    this.editMode = false;
-  }
-
-
-  getEditableData(){
-    const inputs = this.sourceTable.nativeElement.querySelectorAll(".editMode input");
-    const values = new Map();
-
-    inputs.forEach((input, index)=>{
-          if(index == 0) return;
-          let inputElement = (input as HTMLInputElement);
-          values.set(inputElement.name, inputElement.value);
-    });
-
-    this.updateTicket(Object.fromEntries(values));
-  }
-
-  getCreationData(){
-    const inputs = this.sourceTable.nativeElement.querySelectorAll(".createMode input");
-    const values = new Map();
-
-    inputs.forEach((input, index)=>{
-          if(index == 0) return;
-          let inputElement = (input as HTMLInputElement);
-          values.set(inputElement.name, inputElement.value);
-    });
-
-    this.createTicket(Object.fromEntries(values));
-  }
-
   deleteTicket(id:string){
     this.ticketService.deleteTicket(id).subscribe((response)=>{
       this.tickets = this.tickets.filter((ticket)=>{
@@ -74,16 +61,18 @@ export class TicketComponent implements OnInit {
 
   
   updateTicket(data:Partial<Ticket>){
-    this.ticketService.updateTicket(data._id as string,data).subscribe(()=>{
-      this.editMode = false;
-    });
+    if(this.selectedTicket?._id){
+      this.ticketService.updateTicket(this.selectedTicket._id as string,data).subscribe(()=>{
+        this.getAllTickets();
+      });
+
+    }
   }
 
   createTicket(data:Partial<Ticket>){
     this.ticketService.createTicket(data).subscribe(()=>{
-        this.createMode = false;
-        this.getAllTickets();
-    })
+      this.getAllTickets();
+    });
   }
 
   getAllTickets(){
