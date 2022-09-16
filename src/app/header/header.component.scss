@@ -50,7 +50,30 @@ header {
   gap: 8%;
   padding-left: 15%;
 }
+
+// cart container icon
+.cart-cont {
+  position: relative;
+  margin-top: -3px;
+}
+
 // cart icon styling
 .bi-cart-fill {
   color: #005da4;
+}
+
+// badge for cart icon styling
+.badge {
+  position: absolute;
+  top: -11px;
+  right: -14px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: red;
+  color: whitesmoke;
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
