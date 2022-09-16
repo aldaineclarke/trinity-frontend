@@ -23,15 +23,11 @@
                 <td class="cursor">
                     <p>{{product.category}}</p>
                 </td>
-                <!-- <td class="cursor">
-                    <input type="text" [value]="product.plumber" name="plumber" >
-                </td> -->
+
                 <td class="cursor">
                     <p>{{product.quantity}}</p>
                 </td>
-                <!-- <td class="cursor">
-                    <input type="tel" [value]="product.service" name="clientPhone" >
-                </td> -->
+
                 <td class="cursor w-[300px]">
                     <p>{{product.rating}}</p>
                 </td>
@@ -47,14 +43,7 @@
 
                 </td>
                 <input type="hidden" name="_id" [value] = "product._id">
-                <td>
-                    <div class="actions flex gap-2">
-                        <button class="btn btn--info btn--sm" (click)="openDialog(product._id)">View</button>
-                       
-                        <button class="btn btn--danger btn--sm"(click)="deleteProduct(product._id)">Delete</button>
-                    </div>
 
-                </td>
             </tr>
            
         </tbody>
