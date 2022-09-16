@@ -8,20 +8,29 @@ import { PlumberService } from 'src/app/Services/plumber.service';
   styleUrls: ['./plumber.component.scss']
 })
 export class PlumberComponent implements OnInit {
-  @ViewChild("editableForms") editForms!: ElementRef<HTMLElement>;
+  @ViewChild("editableForms") sourceTable!: ElementRef<HTMLElement>;
 
   constructor(private plumberService: PlumberService) { }
 
   editMode = false;
+  createMode = false;
   plumbers:Plumber[] = []; 
 
   ngOnInit(): void {
     this.getAllPlumbers();
   }
 
+  turnOnCreationMode(){
+    this.createMode = true;
+  }
+  toggleCreationMode(){
+    this.createMode = !this.createMode;
+  }
+  turnOffCreationMode(){
+    this.createMode = false;
+  }
   turnOnEditMode(){
     this.editMode = true;
-
   }
 
   turnOffEditMode(){
@@ -33,8 +42,15 @@ export class PlumberComponent implements OnInit {
       this.editMode = false;
     });
   }
+
+  createPlumber(data:Partial<Plumber>){
+    this.plumberService.createPlumber(data).subscribe(()=>{
+        this.createMode = false;
+        this.getAllPlumbers();
+    })
+  }
   getEditableData(){
-    const inputs = this.editForms.nativeElement.querySelectorAll(".editMode input");
+    const inputs = this.sourceTable.nativeElement.querySelectorAll(".editMode input");
     const values = new Map();
 
     inputs.forEach((input, index)=>{
@@ -44,6 +60,19 @@ export class PlumberComponent implements OnInit {
     });
 
     this.updatePlumber(Object.fromEntries(values));
+  }
+
+  getCreationData(){
+    const inputs = this.sourceTable.nativeElement.querySelectorAll(".createMode input");
+    const values = new Map();
+
+    inputs.forEach((input, index)=>{
+          if(index == 0) return;
+          let inputElement = (input as HTMLInputElement);
+          values.set(inputElement.name, inputElement.value);
+    });
+
+    this.createPlumber(Object.fromEntries(values));
   }
 
   getAllPlumbers(){

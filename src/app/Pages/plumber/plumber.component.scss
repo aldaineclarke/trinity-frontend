@@ -18,6 +18,10 @@ td:not(:first-of-type){
     }
 
 }
+
+.createMode input{
+    @apply border-b border-trinityBlue;
+}
     
 
 table td{

@@ -10,7 +10,7 @@
                 <th>Status</th>
                 <th>Phone Number</th>
                 <th>Actions</th>
-                <th><button class="rounded-3xl h-10 w-10  bg-trinityBlue inline-flex items-center justify-center text-white" title="Add a new plumber"><i class="fa-solid fa-plus"></i></button></th>
+                <th><button class="rounded-3xl h-10 w-10  bg-trinityBlue inline-flex items-center justify-center text-white" title="Add a new plumber" (click)="toggleCreationMode()"><i class="fa-solid fa-plus"></i></button></th>
             </tr>
         </thead>
         <tbody #editableForms>
@@ -40,6 +40,30 @@
                     </div>
                 </td>
                 <input type="hidden" name="_id" [value] = "plumber._id">
+            </tr>
+            <tr *ngIf="createMode" [class]="{createMode}">
+                <td class="text-center align-middle">
+                    <input type="checkbox" class="text-trinityBlue h-6 w-6">
+                </td>
+                <td class="cursor">
+                    <input type="text"  name="plumbername" placeholder="Name" >
+                </td>
+                <td class="cursor">
+                    <input type="email"  name="email" placeholder="Johndoe@mailme.com">
+                </td>
+                <td class="cursor">
+                    <input type="text"  name="status" placeholder="available">
+                </td>
+                <td class="cursor">
+                    <input type="tel"  name="phone" placeholder="555-555-5555">
+                </td>
+                <td>
+                    <div class="actions flex gap-2">
+
+                        <button class="btn btn--success btn--sm" *ngIf="createMode" (click)="getCreationData()">Submit</button>
+                        <button class="btn btn--danger btn--sm" *ngIf="createMode" (click)="turnOffCreationMode()">Cancel</button>
+                    </div>
+                </td>
             </tr>
         </tbody>
     </table>
