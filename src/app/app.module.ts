@@ -8,7 +8,7 @@ import { MaterialModule } from './Modules/material/material.module';
 import { ProductModalComponent } from './Components/product-modal/product-modal.component';
 import { ProductCardComponent } from './Components/product-card/product-card.component';
 import { FooterComponent } from './Components/footer/footer.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './Components/header/header.component';
 import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 import { PlumberComponent } from './Pages/plumber/plumber.component';
 import { ProductDisplayComponent } from './Pages/product-display/products-display.component';
