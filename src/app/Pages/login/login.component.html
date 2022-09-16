@@ -22,6 +22,9 @@
             
             required
           /><br />
+          <span  span style="color:rgb(203, 26, 26);font-weight:bold" class="error" *ngIf="(createControl['email']?.touched  && createControl['email']?.errors?.['required'])"> This field is required</span>
+          <span  span style="color:rgb(227, 33, 33);font-weight:bold"class="error" *ngIf="(createControl['email']?.touched && createControl['email']?.errors?.['pattern'])"> Input not a valid email address</span>
+          
         </div>
 
         <div class="form-group">
@@ -34,11 +37,14 @@
             
             required
           /><br />
+          <span span style="color:rgb(209, 11, 41);font-weight:bold" class="error" *ngIf="(createControl['password']?.touched  && createControl['password']?.errors?.['required'])"> password is required</span>
+
         </div>
 
         <div class="buwrapper">
           <button type="submit" (click)="submit()" [disabled]="!plumForm.valid"      class="button button1">sign in</button>  
-          <button      class="button button2">create user</button>
+
+          <!-- <button      class="button button2">create user</button> -->
         </div>
         <!-- because of the background color of the bottom the grey out color will not be seen you can console the button sending out info once info is there -->
 <!--  
