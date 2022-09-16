@@ -59,9 +59,9 @@ export class CheckoutFormComponent implements OnInit {
   if(card == "paypal"){
     this.cardForm.setValue({
       cardType: "paypal",
-      cardNumber :'blank',
-      expiryDate :'blank',
-      cvv: 'blank'
+      cardNumber :0,
+      expiryDate :new Date,
+      cvv: 0
     })
     this.stepper.next();
   }else{
@@ -78,7 +78,7 @@ export class CheckoutFormComponent implements OnInit {
     expiryDate : this.cardForm.value.expiryDate,
     cvv: this.cardForm.value.cvv
   }
-  
+
   if(summaryDets.cardType == "visa"){
     console.log(summaryDets);
   }
