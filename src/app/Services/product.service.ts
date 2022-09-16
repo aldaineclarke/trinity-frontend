@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { catchError, Observable } from 'rxjs';
 import { BASE_URL } from 'src/environments/environment';
 import { APIResponse } from '../Interfaces/apiResponse';
-import { Product } from '../Interfaces/pruduct';
+import { Product } from '../Interfaces/product';
 import { HandlerService } from './handler.service';
 
 @Injectable({
