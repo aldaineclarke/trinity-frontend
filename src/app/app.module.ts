@@ -17,6 +17,7 @@ import { OrderComponent } from './Pages/order/order.component';
 import { LoginComponent } from './Pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { ProductsComponent } from './Pages/products/products.component';
 
 @NgModule({
   entryComponents:[ProductModalComponent],
@@ -31,7 +32,8 @@ import { FormsModule } from '@angular/forms';
     ProductDisplayComponent,
     TicketComponent,
     OrderComponent,
-    LoginComponent
+    LoginComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
