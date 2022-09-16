@@ -7,43 +7,43 @@
             </div>
 
             <ul class="text-[#70CEEE] p-10">
-                <li class="flex gap-5 justify-center items-center py-3 border-b border-[#70CEEE]">
+                <li class="flex gap-5 justify-center items-center py-4 border-b border-[#70CEEE]">
                     <i class="fa-solid fa-caret-right"></i>
                     <p>clogged toilet, it cannot flush</p>
                 </li>
-                <li class="flex gap-5 justify-center items-center py-3 border-b border-[#70CEEE]">
+                <li class="flex gap-5 justify-center items-center py-4 border-b border-[#70CEEE]">
                     <i class="fa-solid fa-caret-right"></i>
                     <p>clogged toilet, it cannot flush</p>
                 </li>
-                <li class="flex gap-5 justify-center items-center py-3 border-b border-[#70CEEE]">
+                <li class="flex gap-5 justify-center items-center py-4 border-b border-[#70CEEE]">
                     <i class="fa-solid fa-caret-right"></i>
                     <p>clogged toilet, it cannot flush</p>
                 </li>
-                <li class="flex gap-5 justify-center items-center py-3 border-b border-[#70CEEE]">
+                <li class="flex gap-5 justify-center items-center py-4 border-b border-[#70CEEE]">
                     <i class="fa-solid fa-caret-right"></i>
                     <p>clogged toilet, it cannot flush</p>
                 </li>
-                <li class="flex gap-5 justify-center items-center py-3 border-b border-[#70CEEE]">
+                <li class="flex gap-5 justify-center items-center py-4 border-b border-[#70CEEE]">
                     <i class="fa-solid fa-caret-right"></i>
                     <p>clogged toilet, it cannot flush</p>
                 </li>
-                <li class="flex gap-5 justify-center items-center py-3 border-b border-[#70CEEE]">
+                <li class="flex gap-5 justify-center items-center py-4 border-b border-[#70CEEE]">
                     <i class="fa-solid fa-caret-right"></i>
                     <p>clogged toilet, it cannot flush</p>
                 </li>
-                <li class="flex gap-5 justify-center items-center py-3 border-b border-[#70CEEE]">
+                <li class="flex gap-5 justify-center items-center py-4 border-b border-[#70CEEE]">
                     <i class="fa-solid fa-caret-right"></i>
                     <p>clogged toilet, it cannot flush</p>
                 </li>
-                <li class="flex gap-5 justify-center items-center py-3 border-b border-[#70CEEE]">
+                <li class="flex gap-5 justify-center items-center py-4 border-b border-[#70CEEE]">
                     <i class="fa-solid fa-caret-right"></i>
                     <p>clogged toilet, it cannot flush</p>
                 </li>
-                <li class="flex gap-5 justify-center items-center py-3 border-b border-[#70CEEE]">
+                <li class="flex gap-5 justify-center items-center py-4 border-b border-[#70CEEE]">
                     <i class="fa-solid fa-caret-right"></i>
                     <p>clogged toilet, it cannot flush</p>
                 </li>
-                <li class="flex gap-5 justify-center items-center py-3 border-b border-[#70CEEE]">
+                <li class="flex gap-5 justify-center items-center py-4 border-b border-[#70CEEE]">
                     <i class="fa-solid fa-caret-right"></i>
                     <p>clogged toilet, it cannot flush</p>
                 </li>
@@ -64,7 +64,7 @@
         </div>
     </aside>
 
-    <div class="border">
+    <div>
         <div>
             <img src="/assets/img/pipeGold.png" alt="" class="w-full">
         </div>
@@ -74,10 +74,40 @@
             <div class="bg-blue-500 text-white w-full">Dummy Text</div>
         </div>
 
-        <div class="grid grid-cols-3 gap-3">
-            <app-product-card [productsData]="prod"
-            *ngFor="let prod of products"
-            ></app-product-card>
-        </div>
+        
+
+        <mat-tab-group class="mt-40">
+            <mat-tab label="{{cat.name}}"
+            *ngFor="let cat of categories; let catProd of products"
+            >
+                <!-- <div class="grid grid-cols-3 gap-3" *ngIf="cat._id == '63248cef3da871f98d0d6b02'"> -->
+                <div class="grid grid-cols-3 gap-3">
+                   <div *ngFor="let prod of products;">
+
+                        <app-product-card [productsData]="prod"
+                        *ngIf="prod.category == cat._id"
+                        >
+                        </app-product-card>
+
+                   </div>
+                </div>
+            </mat-tab>
+
+            <!-- <mat-tab label="Catergory 2">
+                <div class="grid grid-cols-3 gap-3">
+                    <app-product-card [productsData]="prod"
+                    *ngFor="let prod of products"
+                    ></app-product-card>
+                </div>
+            </mat-tab>
+
+            <mat-tab label="Category 3">
+                <div class="grid grid-cols-3 gap-3">
+                    <app-product-card [productsData]="prod"
+                    *ngFor="let prod of products"
+                    ></app-product-card>
+                </div>
+            </mat-tab> -->
+        </mat-tab-group>
     </div>
 </section>

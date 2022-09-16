@@ -3,17 +3,20 @@ import { CommonModule } from '@angular/common';
 
 import { MatButtonModule } from '@angular/material/button'
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatTabsModule} from '@angular/material/tabs';
 
 const MaterialComponents = [
-  MatButtonModule
+  MatButtonModule,
+  MatDialogModule,
+  MatTabsModule,
 ]
 
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
     MaterialComponents,
-    MatDialogModule
+    CommonModule,
+    
   ],
   exports: [
     MaterialComponents
