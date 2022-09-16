@@ -4,6 +4,7 @@ export interface Ticket{
     clientEmail: string;
     clientPhone:number;  
     clientAddress:string;
+    service: string;
     clientNote:string;
     plumber:string; 
 }
