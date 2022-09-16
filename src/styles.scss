@@ -2,8 +2,6 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 //  To apply this font type this for the property ---->  font-family: "Inter", sans-serif;
@@ -35,3 +33,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   @apply bg-green-500 text-white;
 }
 
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

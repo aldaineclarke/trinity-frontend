@@ -1,0 +1,124 @@
+<div class="yellow-theme">
+  <!-- mat-stepper themePalette didnt work -->
+  <mat-stepper [linear]="true" #stepper>
+    <!--* Email Step -->
+    <mat-step [stepControl]="emailForm" [editable]="true">
+
+      <ng-template matStepLabel class="step-label">
+         Client recognition
+        </ng-template>
+
+      <form action="" [formGroup]="emailForm" *ngIf="switchTrigger == false" #EmailForm="ngForm">
+        <div class="form-flex">
+          <mat-form-field appearance="standard">
+            <mat-label>Enter your email</mat-label>
+            <input
+              type="email"
+              matInput
+              placeholder="example johndoe@mail.com"
+              formControlName="email"
+              required
+            />
+
+            <mat-error *ngIf="email?.errors?.['required']">Your Email is Required</mat-error>
+            <mat-error *ngIf="email?.errors?.['pattern']">Enter a Valid Email</mat-error>
+
+          </mat-form-field>
+
+
+        </div>
+
+        <div style="margin-top: 15px;">
+          <button mat-raised-button class="btn btn--sm"  (click)="findUser()">Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <!-- Email End -->
+
+    <!--* Card details Step -->
+    <mat-step [stepControl]="cardForm">
+      <form action="" [formGroup]="cardForm">
+        <ng-template matStepLabel class="step-label">
+          Enter card information</ng-template
+        >
+
+        <div class="radio-cont">
+          <mat-radio-group
+            aria-label="Select an option"
+            formControlName="cardType"
+            class="mat-radio-vert"
+          >
+            <mat-radio-button value="visa">Visa</mat-radio-button>
+            <mat-radio-button value="paypal">Paypal</mat-radio-button>
+            <mat-radio-button value="visa">Visa</mat-radio-button>
+            <mat-radio-button value="visa">Visa</mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Enter card number</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="Enter your card number"
+            formControlName="cardNumber"
+            required
+          />
+        </mat-form-field>
+
+        <div>
+          <div>
+            <mat-label>Expiry Date</mat-label>
+          </div>
+
+          <div>
+            <mat-form-field>
+              <input
+                type="text"
+                matInput
+                placeholder="expiry year and month"
+                formControlName="expiryDate"
+                required
+              />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-raised-button class="btn btn--sm" matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <!-- Card details End -->
+
+    <!--* Confirmation Step -->
+    <mat-step [stepControl]="confirmForm">
+      <form action="" [formGroup]="confirmForm">
+        <ng-template matStepLabel class="step-label">
+          Confirm payment</ng-template
+        >
+
+        <div>
+          <mat-label>Confirmation</mat-label>
+        </div>
+
+        <div class="radio-cont">
+          <mat-radio-group
+            aria-label="Select an option"
+            formControlName="confirm"
+          >
+            <mat-radio-button value="confirm">Confirm</mat-radio-button>
+            <mat-radio-button value="cancel">Cancel</mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-raised-button class="btn btn--sm" matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <!-- Confirmation End -->
+  </mat-stepper>
+</div>
