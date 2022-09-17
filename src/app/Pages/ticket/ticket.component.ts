@@ -22,18 +22,22 @@ export class TicketComponent implements OnInit {
   constructor(private ticketService: TicketService, public dialog: MatDialog) { }
 
   openDialog(id?: string): void {
+    let setBlank = false
     if(id){
       this.selectedTicket = this.tickets.find((ticket)=>{
         return ticket._id == id
       }) as Ticket;
     }else{
-      this.selectedTicket = undefined;
+      setBlank = true;
     }
     console.log(this.selectedTicket)
     const dialogRef = this.dialog.open(TicketEditComponent, {
       width: '40%',
       minWidth:'400px',
-      data: this.selectedTicket
+      data: {
+        ticket:this.selectedTicket,
+        blank: setBlank
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
