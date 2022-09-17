@@ -10,7 +10,7 @@
             </div>
             <div class="form-group grid gap-6 grid-cols-2 mb-6">
                 <div class="relative z-0">
-                    <input type="file" id="image" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent  dark:text-white focus:outline-none focus:ring-0" placeholder=" " formControlName="image"/>
+                    <input type="file" id="image" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent  dark:text-white focus:outline-none focus:ring-0" placeholder=" " (change)="getFileData($event)"/>
                     <label for="image" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Product Image</label>
                 </div>            
                 <div class="relative z-0">
@@ -26,8 +26,9 @@
             </div>
             <div class="form-group grid gap-6 grid-cols-2  mb-6">
                 <div class="relative z-0">
+                    
                     <select id="category" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-trinityBlue focus:outline-none focus:ring-0 focus:border-trinityBlue peer" placeholder=" " formControlName="category">
-                        <option selected>-- Select Category --</option>
+                        <option>-- Select Category --</option>
                         <option [value]="category._id" *ngFor="let category of categories">{{category.name}}</option>
                     </select>
                     <label for="category" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Category</label>

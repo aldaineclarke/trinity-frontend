@@ -1,8 +1,11 @@
 import { Component} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ProductEditComponent } from 'src/app/Components/product-edit/product-edit.component';
+import { Category } from 'src/app/Interfaces/category';
 import { Product } from 'src/app/Interfaces/product';
+import { CategoryService } from 'src/app/Services/category.service';
 import { ProductService } from 'src/app/Services/product.service';
+import { BASE_URL, DOMAIN } from 'src/environments/environment';
 
 @Component({
   selector: 'app-product-detail',
@@ -11,13 +14,15 @@ import { ProductService } from 'src/app/Services/product.service';
 })
 export class ProductDisplayComponent {
 
-  constructor(private productService: ProductService, private dialog: MatDialog) { }
-
+  constructor(private productService: ProductService, private dialog: MatDialog, private categoryService: CategoryService) { }
+  base = DOMAIN;
   products:Product[] = [];
+  categories: Category[] = [];
   selectedProduct:Product | undefined = undefined;
 
   ngOnInit(): void {
     this.getAllProducts();
+    this.getAllCategories()
   }
 
   openDialog(id?: string): void {
@@ -47,7 +52,11 @@ export class ProductDisplayComponent {
     });
   }
 
-
+  getCategoryNameFromId(id:string){
+    return this.categories.find((category)=>{
+      return category._id == id;
+    })?.name;
+  }
   createProduct(product:Partial<Product>){
       this.productService.createProduct(product).subscribe(()=>{
         this.getAllProducts()
@@ -69,6 +78,12 @@ export class ProductDisplayComponent {
       this.products = this.products.filter((product)=>{
         return product._id !== id;
       })
+    })
+  }
+
+  getAllCategories(){
+    this.categoryService.getAllCategory().subscribe((response)=>{
+      this.categories = response.data
     })
   }
 

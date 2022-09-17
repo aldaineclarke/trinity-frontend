@@ -49,7 +49,45 @@ export class ProductEditComponent implements OnInit {
     })
   }
   submitData(){
-    return this.productForm.value;
+
+    let formdata = this.productForm.value;
+
+    let form = new FormData();
+
+    for(let prop in formdata){
+
+      if(formdata[prop] instanceof Blob){
+        form.append(prop, formdata[prop], formdata[prop].name ? formdata[prop].name : "");
+
+      }else form.append(prop, formdata[prop])
+    }
+    return form;
+  }
+
+  getFileData(event: Event){
+    let extensionAllowed:{[key:string]:boolean} = {"png":true,"jpeg":true, "jpg":true};
+    const fileElement = event.target as HTMLInputElement;
+
+    if(fileElement.files){
+      if (fileElement.files[0].size / 1024 / 1024 > 20) {
+        alert("File size should be less than 20MB")
+        return;
+      }
+      if (extensionAllowed) {
+        let nam = fileElement.files[0].name.split('.').pop();
+        if(nam){
+          if (!extensionAllowed[nam]) {
+            alert("Please upload " + Object.keys(extensionAllowed) + " file.")
+            return;
+          }
+        }
+      }
+
+      this.productForm.controls["image"].setValue(fileElement.files[0] as File);
+    }
+
+    
+    
   }
 
   getCategories(){

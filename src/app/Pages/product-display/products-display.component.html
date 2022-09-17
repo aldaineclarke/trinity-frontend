@@ -15,24 +15,24 @@
             <!-- Tells angular to add the class with same name once editMode is true -->
             <tr *ngFor="let product of products">
                 <td class="cursor">
-                    <div class="prod-name">
-                        <img src="{{product.image}}" alt="This is an alternate image of a product">
+                    <div class="prod-name flex gap-2 items-center">
+                        <img src="{{base + product.image}}" class="h-10 w-10 rounded-lg" alt="This is an alternate image of a product">
                         <p>{{product.name}}</p>
                     </div>
                 </td>
                 <td class="cursor">
-                    <p>{{product.category}}</p>
+                    <p>{{getCategoryNameFromId(product.category)}}</p>
                 </td>
 
                 <td class="cursor">
                     <p>{{product.quantity}}</p>
                 </td>
 
-                <td class="cursor w-[300px]">
+                <td class="cursor">
                     <p>{{product.rating}}</p>
                 </td>
-                <td class="cursor w-[300px]">
-                    <p>{{product.price}}</p>
+                <td class="cursor">
+                    <p>{{product.price | currency:"USD"}}</p>
                 </td>
                 <td>
                     <div class="actions flex gap-2">
