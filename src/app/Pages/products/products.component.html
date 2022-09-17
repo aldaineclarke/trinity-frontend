@@ -1,52 +1,17 @@
 <section class="my-[5rem] w-[90%] m-auto grid grid-cols-[2.8fr_7.2fr] gap-10">
     <aside>
-        <div class="border-2 border-[#70CEEE] shadow-lg shadow-blue-100">
+        <div class="border-2 border-[#70CEEE] shadow-lg shadow-blue-100 min-h-[400px]">
             <div class="flex gap-3 bg-[#70CEEE] text-white uppercase text-2xl font-bold justify-center items-center p-3">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <h2>What is your query</h2>
             </div>
 
             <ul class="text-[#70CEEE] p-10">
-                <li class="flex gap-5 justify-center items-center py-4 border-b border-[#70CEEE]">
+                <li class="flex gap-5 justify-start items-start py-4 border-b border-[#70CEEE] cursor-pointer" *ngFor="let service of services" (click)="openDialog(service)">
                     <i class="fa-solid fa-caret-right"></i>
-                    <p>clogged toilet, it cannot flush</p>
+                    <p>{{service.name}}</p>
                 </li>
-                <li class="flex gap-5 justify-center items-center py-4 border-b border-[#70CEEE]">
-                    <i class="fa-solid fa-caret-right"></i>
-                    <p>clogged toilet, it cannot flush</p>
-                </li>
-                <li class="flex gap-5 justify-center items-center py-4 border-b border-[#70CEEE]">
-                    <i class="fa-solid fa-caret-right"></i>
-                    <p>clogged toilet, it cannot flush</p>
-                </li>
-                <li class="flex gap-5 justify-center items-center py-4 border-b border-[#70CEEE]">
-                    <i class="fa-solid fa-caret-right"></i>
-                    <p>clogged toilet, it cannot flush</p>
-                </li>
-                <li class="flex gap-5 justify-center items-center py-4 border-b border-[#70CEEE]">
-                    <i class="fa-solid fa-caret-right"></i>
-                    <p>clogged toilet, it cannot flush</p>
-                </li>
-                <li class="flex gap-5 justify-center items-center py-4 border-b border-[#70CEEE]">
-                    <i class="fa-solid fa-caret-right"></i>
-                    <p>clogged toilet, it cannot flush</p>
-                </li>
-                <li class="flex gap-5 justify-center items-center py-4 border-b border-[#70CEEE]">
-                    <i class="fa-solid fa-caret-right"></i>
-                    <p>clogged toilet, it cannot flush</p>
-                </li>
-                <li class="flex gap-5 justify-center items-center py-4 border-b border-[#70CEEE]">
-                    <i class="fa-solid fa-caret-right"></i>
-                    <p>clogged toilet, it cannot flush</p>
-                </li>
-                <li class="flex gap-5 justify-center items-center py-4 border-b border-[#70CEEE]">
-                    <i class="fa-solid fa-caret-right"></i>
-                    <p>clogged toilet, it cannot flush</p>
-                </li>
-                <li class="flex gap-5 justify-center items-center py-4 border-b border-[#70CEEE]">
-                    <i class="fa-solid fa-caret-right"></i>
-                    <p>clogged toilet, it cannot flush</p>
-                </li>
+               
             </ul>
         </div>
 
