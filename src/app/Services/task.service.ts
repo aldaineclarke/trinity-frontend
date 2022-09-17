@@ -14,7 +14,7 @@ export class TaskService {
 
   constructor(private _http: HttpClient, private handler:HandlerService) { }
 
-  getAllCategory():Observable<APIResponse<Service[]>>{
+  getAllServices():Observable<APIResponse<Service[]>>{
     return this._http.get<APIResponse<Service[]>>(this.ENDPOINT)
     .pipe(
       catchError(this.handler.handleError)
