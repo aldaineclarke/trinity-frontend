@@ -37,13 +37,15 @@ export class TicketComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result)
-      if(this.selectedTicket){
-        this.updateTicket(result);
-      }else{
-        this.createTicket(result);
+      if(Object.keys(result).length > 0){
+
+        if(this.selectedTicket){
+          this.updateTicket(result);
+        }else{
+          this.createTicket(result);
+        }
+        this.getAllTickets();
       }
-      this.getAllTickets();
     });
   }
 
