@@ -41,13 +41,6 @@ header {
   list-style-type: none;
   color: #005da4;
   font-size: 16px;
-}
-
-.link1,
-.link2,
-.link3,
-.link4,
-.link5:hover {
   cursor: pointer;
 }
 
@@ -58,24 +51,29 @@ header {
   padding-left: 15%;
 }
 
-// Form links contianer styling
-.form-links-cont {
-  display: flex;
-  gap: 2%;
-  width: 100%;
-}
-
-.form-links-cont > div > a {
-  text-decoration: none;
-  color: #005da4;
-  font-size: 16px;
-}
-
-.form-links-cont > div > span {
-  color: #005da4;
+// cart container icon
+.cart-cont {
+  position: relative;
+  margin-top: -3px;
 }
 
 // cart icon styling
 .bi-cart-fill {
   color: #005da4;
+}
+
+// badge for cart icon styling
+.badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: red;
+  color: whitesmoke;
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
