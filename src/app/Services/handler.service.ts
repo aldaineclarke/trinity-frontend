@@ -32,8 +32,15 @@ export class HandlerService {
               message = "Url requested has not been found";
               reason = "Server Error"
               break;
+          
+          case "Internal Server Error": 
+              message = error.error.message;
+              reason = "Internal Server error";
+              break;
 
           default:
+            message = "An error occured when making a request to the server",
+            reason = "Server Error"
         }
     }else if(typeof error === "object"){
         if(error.message){

@@ -36,7 +36,7 @@ export class ProductDisplayComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(Object.keys(result).length > 0){
+      if(result){
         if(this.selectedProduct){
           this.updateProduct(result);
         }else{

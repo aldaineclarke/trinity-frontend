@@ -1,7 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Category } from 'src/app/Interfaces/category';
 import { Product } from 'src/app/Interfaces/product';
+import { CategoryService } from 'src/app/Services/category.service';
+import { ProductService } from 'src/app/Services/product.service';
 
 @Component({
   selector: 'app-product-edit',
@@ -10,13 +13,15 @@ import { Product } from 'src/app/Interfaces/product';
 })
 export class ProductEditComponent implements OnInit {
 
+  categories:Category[] = [];
 
-  constructor(@Inject(MAT_DIALOG_DATA) private data: Partial<Product>) { }
+  constructor(@Inject(MAT_DIALOG_DATA) private data: Partial<Product>, private productService: ProductService, private categoryService: CategoryService) { }
 
   ngOnInit(): void {
     if(this.data){
       this.setFormData();
     }
+    this.getCategories();
   }
 
   productForm = new FormGroup({
@@ -46,7 +51,13 @@ export class ProductEditComponent implements OnInit {
   submitData(){
     return this.productForm.value;
   }
-  
+
+  getCategories(){
+    this.categoryService.getAllCategory().subscribe((response)=>{
+      this.categories = response.data;
+    })
+  }
+ 
 
 }
 
