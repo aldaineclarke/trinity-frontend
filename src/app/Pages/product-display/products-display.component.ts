@@ -17,6 +17,7 @@ export class ProductDisplayComponent {
   selectedProduct:Product | undefined = undefined;
 
   ngOnInit(): void {
+    this.getAllProducts();
   }
 
   openDialog(id?: string): void {
@@ -35,12 +36,14 @@ export class ProductDisplayComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result)
-      if(this.selectedProduct){
-        this.updateProduct(result);
-      }else{
-        this.createProduct(result);
+      if(Object.keys(result).length > 0){
+        if(this.selectedProduct){
+          this.updateProduct(result);
+        }else{
+          this.createProduct(result);
+        }
       }
+      
     });
   }
 
