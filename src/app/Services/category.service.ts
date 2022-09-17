@@ -28,7 +28,7 @@ export class CategoryService {
     );
   }
 
-  createCategory(data:Partial<Category[]>):Observable<APIResponse<Category>>{
+  createCategory(data:Partial<Category>):Observable<APIResponse<Category>>{
     return this._http.post<APIResponse<Category>>(this.ENDPOINT, data)
     .pipe(
       catchError(this.handler.handleError)
