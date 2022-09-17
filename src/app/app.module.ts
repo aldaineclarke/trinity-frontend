@@ -25,6 +25,8 @@ import { CartPageComponent } from './Pages/cart-page/cart-page.component';
 import { TicketEditComponent } from './Components/ticket-edit/ticket-edit.component';
 import { ProductEditComponent } from './Components/product-edit/product-edit.component';
 
+
+
 @NgModule({
   entryComponents:[ProductModalComponent],
   declarations: [
@@ -55,13 +57,13 @@ import { ProductEditComponent } from './Components/product-edit/product-edit.com
     ReactiveFormsModule,
     MaterialModule,
     HttpClientModule,
+
   ],
   providers: [
     {
     provide: MAT_RADIO_DEFAULT_OPTIONS,
     useValue: { color: 'primary' }
   },
-
   ],
   bootstrap: [AppComponent]
 })

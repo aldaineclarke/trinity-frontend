@@ -19,7 +19,7 @@ export class CheckoutFormComponent implements OnInit {
   emailVal !: string;
 
    emailForm = new FormGroup({
-    email : new FormControl('' , [Validators.required])
+    email : new FormControl('' , [Validators.required, Validators.email])
   });
 
   get email() {
@@ -27,11 +27,24 @@ export class CheckoutFormComponent implements OnInit {
   }
 
   cardForm = new FormGroup({
-    cardType: new FormControl(),
-    cardNumber : new FormControl('' , [Validators.required]),
-    expiryDate : new FormControl(),
-    cvv: new FormControl()
+    cardType: new FormControl('' , [Validators.required]),
+    cardNumber : new FormControl(null , [Validators.required, Validators.minLength(16)]),
+    expiryDate : new FormControl('' , [Validators.required]),
+    cvv: new FormControl('' , [Validators.required ,  Validators.minLength(3), Validators.maxLength(16)])
   });
+
+  get cardType() {
+    return this.cardForm.get('cardType');
+  }
+  get cardNumber() {
+    return this.cardForm.get('cardNumber');
+  }
+  get expiryDate() {
+    return this.cardForm.get('expiryDate');
+  }
+  get cvv() {
+    return this.cardForm.get('cvv');
+  }
 
   confirmForm = new FormGroup({
     confirm : new FormControl('')
@@ -40,18 +53,42 @@ export class CheckoutFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  findUser(){
-    this.emailVal = this.emailForm.value.email;
+  checkCardType(){
+  let card = this.cardForm.value.cardType.trim().toLowerCase();
 
-    if(this.emailForm.valid){
-      if(this.emailVal == 'bob'){
-        this.stepper.next();
+  if(card == "paypal"){
+    this.cardForm.setValue({
+      cardType: "paypal",
+      cardNumber :0,
+      expiryDate :new Date,
+      cvv: 0
+    })
+    this.stepper.next();
+  }else{
+    this.stepper.next();
+  }
 
-      }else{
-       this.parent.changeSwitch();
+  }
 
-      }
-    }
+  confirmOrder(){
+  let summaryDets = {
+    email : this.emailForm.value.email.trim().toLowerCase(),
+    cardType: this.cardForm.value.cardType.trim().toLowerCase(),
+    cardNumber : this.cardForm.value.cardNumber,
+    expiryDate : this.cardForm.value.expiryDate,
+    cvv: this.cardForm.value.cvv
+  }
+
+  if(summaryDets.cardType == "visa"){
+    console.log(summaryDets);
+  }
+
+  if(summaryDets.cardType == "paypal"){
+
+    console.log('Paypal' + JSON.stringify(summaryDets));
+  }
+
+
 
   }
 

@@ -48,15 +48,8 @@ export class CheckoutComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  changeSwitch(){
-    this.switch = !this.switch;
-    alert(this.parentComponent.emailVal)
-  }
+ 
 
-  moveOn(){
-    // access the stepper from the
-    this.parentComponent.stepper.next();
-    this.changeSwitch();
-  }
+
 
 }
