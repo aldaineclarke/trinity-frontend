@@ -53,3 +53,92 @@ mat-stepper{
   width: 100%;
 }
 
+.order-grid{
+  width: 100%;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:5rem;
+  padding: 5px;
+}
+
+.grid-descrip{
+  margin-top: 40px;
+  padding:20px;
+  border:0.1px solid lightblue;
+  height: fit-content;
+}
+
+.order-summary{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 3px 3px 3px rgba(51, 51, 51, 0.13);
+  padding: 10px;
+}
+
+.order-title{
+  width: 100%;
+  display:flex;
+  border: 1px solid lightblue;
+  border-radius: 3px;
+  padding: 2px 20px;
+  justify-content: space-between;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.order-card-cont{
+  width: 100%;
+  border: 0.1px solid white;
+  margin: 10px 0px;
+  cursor: pointer;
+  transition: all 300ms ease 0s;
+}
+
+.order-card-cont:hover{
+  box-shadow: 3px 3px 3px rgba(255, 252, 252, 0.37);
+}
+
+.order-card{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-image: linear-gradient(-60deg, white 10% , #70CEEE 100%);
+}
+
+.order-card img{
+  width: 100%;
+  height:100%;
+}
+
+.img-cont{
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+}
+
+.order-card-cont:hover .img-cont{
+  box-shadow: 3px 3px 3px rgba(248, 245, 245, 0.767);
+  transition: all 300ms ease 0s;
+}
+
+.order-descrip{
+  width: 80%;
+  padding: 20px;
+  margin-top: 10px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 100;
+  gap: 2rem;
+}
+
+.order-total{
+  align-self: flex-end;
+  justify-self: flex-end;
+  padding: 0px 10px;
+}
+
+.descrip-header{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  
+}
+
+

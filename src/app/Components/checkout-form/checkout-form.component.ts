@@ -1,7 +1,9 @@
 import { Component, Inject, Input, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
+import { Router } from '@angular/router';
 import { CheckoutComponent } from 'src/app/Pages/checkout/checkout.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-checkout-form',
@@ -10,7 +12,9 @@ import { CheckoutComponent } from 'src/app/Pages/checkout/checkout.component';
 })
 export class CheckoutFormComponent implements OnInit {
 
-  constructor(@Inject(CheckoutComponent) private parent: CheckoutComponent) { }
+  constructor(
+    private router : Router
+  ) { }
 
   // This is used to turn off the matstepper form when the login user form is active
   @ViewChild('stepper') stepper !: MatStepper;
@@ -88,7 +92,31 @@ export class CheckoutFormComponent implements OnInit {
     console.log('Paypal' + JSON.stringify(summaryDets));
   }
 
+  Swal.fire(
+    {
+      title:'Order Success!',
+      text: 'Your order has been successfully.',
+      icon: "success",
+      customClass: {
+        container: "swalContainer",
+      },
 
+    })
+
+  }
+
+  routeToCart(){
+    Swal.fire(
+      {
+        title:'Order Cancelled!',
+        text: 'Your order has been sucessfully cancelled',
+        icon: "success",
+        customClass: {
+          container: "swalContainer",
+        },
+
+      })
+    this.router.navigate(['/cart']);
 
   }
 
