@@ -19,8 +19,10 @@ export class HandlerService {
   }
 
   handleError(error: any, source$?:Observable<any>){
-    let message = "What";
+    let message = "";
     let reason = "";
+
+    console.log(error)
     if(typeof error === 'string'){
       message = error;
       reason = "Server Error"
