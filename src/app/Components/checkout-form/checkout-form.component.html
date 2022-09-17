@@ -1,6 +1,6 @@
 <div class="yellow-theme">
   <!-- mat-stepper themePalette didnt work -->
-  <mat-stepper [linear]="true" #stepper>
+  <mat-stepper [linear]="false" #stepper>
     <!--* Email Step -->
     <mat-step [stepControl]="emailForm" [editable]="true">
       <ng-template matStepLabel class="step-label">
@@ -155,21 +155,93 @@
 
     <!--* Confirmation Step -->
     <mat-step>
+
+      <ng-template matStepLabel class="step-label">
+        Confirm payment</ng-template>
+
       <div class="order-grid">
-        <div>
-          <ng-template matStepLabel class="step-label">
-            Confirm payment</ng-template
-          >
+
+        <div class="grid-descrip">
+          <div>
+            <h2 class="descrip-header">Trinity's Plumbing Service's</h2>
+            <hr>
+            <div></div>
+          </div>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque assumenda itaque magnam recusandae. Doloremque voluptatem omnis eum libero dolore reprehenderit perferendis quidem illum facilis, debitis voluptate nobis molestiae. Ullam, excepturi!
         </div>
-        <div class="btn-cont">
-          <button class="info btn--sm" mat-button matStepperPrevious>
-            Back
-          </button>
-          <button class="btn btn--success btn--sm" (click)="confirmOrder()">
-            Confirm
-          </button>
-          <button class="btn btn--sm btn--danger">Cancel</button>
+
+        <div class="order-summary">
+          <div class="order-title">
+            <h2>Order Summary</h2>
+            <h3>Total:800.00</h3>
+          </div>
+          <div class="order-card-cont">
+            <div class="order-card">
+              <div class="img-cont">
+                <img src="/assets/img/pipeGold.png" alt="">
+              </div>
+            <p class="order-descrip">
+             1x Gold pipe
+            </p>
+            <p class="order-total">
+              $800.00
+            </p>
+            </div>
+          </div>
+
+          <div class="order-card-cont">
+            <div class="order-card">
+              <div class="img-cont">
+                <img src="/assets/img/pipeGold.png" alt="">
+              </div>
+            <p class="order-descrip">
+             Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
+            <p class="order-total">
+              800.00
+            </p>
+            </div>
+          </div>
+
+          <div class="order-card-cont">
+            <div class="order-card">
+              <div class="img-cont">
+                <img src="/assets/img/pipeGold.png" alt="">
+              </div>
+            <p class="order-descrip">
+             Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
+            <p class="order-total">
+              800.00
+            </p>
+            </div>
+          </div>
+
+          <div class="order-card-cont">
+            <div class="order-card">
+              <div class="img-cont">
+                <img src="/assets/img/pipeGold.png" alt="">
+              </div>
+            <p class="order-descrip">
+             Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
+            <p class="order-total">
+              800.00
+            </p>
+            </div>
+          </div>
         </div>
+
+      </div>
+
+      <div class="btn-cont">
+        <button class="info btn--sm" mat-button matStepperPrevious>
+          Back
+        </button>
+        <button class="btn btn--success btn--sm" (click)="confirmOrder()">
+          Confirm
+        </button>
+        <button class="btn btn--sm btn--danger" (click)="routeToCart()">Cancel</button>
       </div>
     </mat-step>
     <!-- Confirmation End -->
