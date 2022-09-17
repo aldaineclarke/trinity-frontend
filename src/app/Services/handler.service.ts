@@ -61,6 +61,6 @@ export class HandlerService {
 
       })
 
-    return of(null);
+    return throwError(new Error(message));
   }
 }
