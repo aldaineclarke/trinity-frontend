@@ -1,6 +1,6 @@
 <div class="yellow-theme">
   <!-- mat-stepper themePalette didnt work -->
-  <mat-stepper [linear]="false" #stepper>
+  <mat-stepper [linear]="true" #stepper>
     <!--* Email Step -->
     <mat-step [stepControl]="emailForm" [editable]="true">
       <ng-template matStepLabel class="step-label">
@@ -10,7 +10,6 @@
       <form
         action=""
         [formGroup]="emailForm"
-        *ngIf="switchTrigger == false"
         #EmailForm="ngForm"
       >
         <div class="form-flex">
