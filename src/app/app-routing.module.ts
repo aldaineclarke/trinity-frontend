@@ -9,6 +9,7 @@ import { ProductsComponent } from './Pages/products/products.component';
 import { ProductDisplayComponent } from './Pages/product-display/products-display.component';
 import { TicketComponent } from './Pages/ticket/ticket.component';
 import { CartPageComponent } from './Pages/cart-page/cart-page.component';
+import { AuthGuard } from './Guards/auth.guard';
 
 const routes: Routes = [
 
@@ -51,7 +52,9 @@ const routes: Routes = [
         pathMatch: "full"
 
       }
-    ]
+    ],
+    canActivate:[AuthGuard],
+    canActivateChild:[AuthGuard],
   },
   {
     path:"checkout",
