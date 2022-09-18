@@ -3,11 +3,11 @@
     class="p-5 hover:cursor-pointer hover:border hover:shadow-md hover:shadow-[#70CEEE]"
     (click)="openDialog(productsData)"
     >
-        <div>
+        <div class="flex justify-center items-center">
             <img src="http://localhost:3000/{{productsData.image}}" alt="">
         </div>
         <div class="text-center">
-            <h1 class="text-xl font-bold text-[#005DA4] py-2">{{productsData.name}}</h1>
+            <h1 class="text-xl font-bold text-[#005DA4] py-2 capitalize">{{productsData.name}}</h1>
             <p class="px-2">
                 {{productsData.description}}
             </p>

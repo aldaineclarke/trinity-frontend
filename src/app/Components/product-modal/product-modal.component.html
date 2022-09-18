@@ -1,26 +1,53 @@
-<div class="grid grid-cols-2 gap-5 p-4">
-    <div class="">
-        <img src="http://localhost:3000/{{data.image}}" alt="" class=" h-[450px] object-contain">
+<section class="relative">
+    <div class="text-gray-500 text-xl hover:text-red-500 hover:cursor-pointer p-2 w-fit ml-auto absolute right-0" (click)="closeModal()">
+        <i class="fa-solid fa-xmark"></i>
     </div>
-    
-    <div class="h-full flex flex-col">
-        <div class="text-center">
-            <h1 class="text-3xl font-bold text-[#005DA4] py-2">{{data.name}}</h1>
-            <p>
-                {{data.description}}
-            </p>
+    <div class="grid grid-cols-2 gap-5 p-4">
+        <div class="">
+            <img src="http://localhost:3000/{{data.image}}" alt="" class=" h-[450px] object-contain">
         </div>
-        <div class="flex justify-between items-center px-5 mt-10">
-            <h2 class="font-medium">${{data.price}}</h2>
-            <h2 class="font-medium">Quantity </h2>
-        </div>
-        <div class="flex justify-between text-white mt-auto pb-5">
-            <button class="py-2 px-5 bg-blue-500" (click)="check()">
-                Send Message
-            </button>
-            <button class="py-2 px-5 bg-blue-500 text-white">
-                Send Message
-            </button>
+        
+        <div class="h-full flex flex-col">
+            <div class="text-center">
+                <h1 class="text-3xl font-bold text-[#005DA4] py-2 capitalize">{{data.name}}</h1>
+                <p>
+                    {{data.description}}
+                </p>
+            </div>
+            <div class="flex justify-between items-center px-5 mt-auto">
+                <p class="font-medium">Unit Price</p>
+                <p class="font-medium">${{data.price}}</p>
+            </div>
+
+            <div class="flex justify-between items-center px-5 mt-auto">
+                <div>
+                    <h3>Total Price</h3>
+                    <p>${{total}}</p>
+                </div>
+
+                <div>
+                    <h3 class="text-center">Quantity</h3>
+                    <div class="flex justify-center items-center gap-3">
+                        <button mat-icon-button (click)="minus()">
+                            <mat-icon>remove</mat-icon>
+                        </button>
+                        <p>${{quantity}}</p>
+                        <button mat-icon-button (click)="add()">
+                            <mat-icon>add</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-end text-white mt-auto pb-5">
+                <button class="py-1 px-6 bg-[#005DA4] flex gap-3 justify-center items-center" (click)="addToCart(data)">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <p>Add to Cart</p>
+                </button>
+                <!-- <button class="py-1 px-5 bg-blue-500 text-white flex gap-3 justify-center items-center" (click)="closeModal()">
+                    <i class="fa-solid fa-xmark"></i>
+                    <p>Close</p>
+                </button> -->
+            </div>
         </div>
     </div>
-</div>
+</section>
