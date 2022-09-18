@@ -4,18 +4,15 @@
       <div class="header">
         <h4>SIGN IN</h4>
 
-        <i class="fa-light fa-xmark-large"></i>
-        <h2 >
-          <img src="..\assets\img\svg\Group 31.svg" alt="" srcset="" />
-        </h2>
+        <!-- -->
       </div>
 
       <form [formGroup]="plumForm" (submit)="submit()">
         
         <div class="form-group">
-          <div class="errors">
-            <span  span style="color:rgb(203, 26, 26);font-weight:bold" class="error" *ngIf="(createControl['email']?.touched  && createControl['email']?.errors?.['required'])"> This field is required</span>
-          <span  span style="color:rgb(227, 33, 33);font-weight:bold"class="error" *ngIf="(createControl['email']?.touched && createControl['email']?.errors?.['pattern'])"> Input not a valid email address</span>
+          <div class="errors font-thin text-red-600">
+            <span class="error" *ngIf="(createControl['email']?.touched  && createControl['email']?.errors?.['required'])"> This field is required</span>
+          <span class="error" *ngIf="(createControl['email']?.touched && createControl['email']?.errors?.['pattern'])"> Input not a valid email address</span>
           
           </div>
           <label for="email">Email</label><br />
@@ -29,7 +26,7 @@
           /><br />
         </div>
         <div class="errors">
-          <span span style="color:rgb(209, 11, 41);font-weight:bold" class="error" *ngIf="(createControl['password']?.touched  &&  createControl['password']?.errors?.['required'])"> password is required</span>
+          <span class="error font-thin text-red-600" *ngIf="(createControl['password']?.touched  &&  createControl['password']?.errors?.['required'])"> password is required</span>
 
         </div>
         <div class="form-group">
@@ -44,8 +41,8 @@
           /><br />
         </div>
 
-        <div class="buwrapper">
-          <button type="submit" [disabled]="!plumForm.valid"   class="button button1">Login</button>
+        <div class="buwrapper mt-2">
+          <button type="submit" [disabled]="!plumForm.valid"   class="bg-trinityBlue text-white py-1 px-4 rounded hover:bg-blue-400">Login</button>
         </div>
       </form>
     </div>
