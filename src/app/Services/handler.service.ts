@@ -27,21 +27,27 @@ export class HandlerService {
       message = error;
       reason = "Server Error"
     }else if(error instanceof HttpErrorResponse){
-        switch(error.statusText){
-          case "Not Found":
-              message = "Url requested has not been found";
+        if(error.error){
+          message = error.error.error;
+          reason = "Authentication Error";
+        }else{
+          switch(error.statusText){
+            case "Not Found":
+                message = "Url requested has not been found";
+                reason = "Server Error"
+                break;
+            
+            case "Internal Server Error": 
+                message = error.error.message;
+                reason = "Internal Server error";
+                break;
+  
+            default:
+              message = "An error occured when making a request to the server",
               reason = "Server Error"
-              break;
-          
-          case "Internal Server Error": 
-              message = error.error.message;
-              reason = "Internal Server error";
-              break;
-
-          default:
-            message = "An error occured when making a request to the server",
-            reason = "Server Error"
+          }
         }
+       
     }else if(typeof error === "object"){
         if(error.message){
           message = error.message;
