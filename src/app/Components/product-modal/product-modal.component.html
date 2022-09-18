@@ -15,21 +15,38 @@
                 </p>
             </div>
             <div class="flex justify-between items-center px-5 mt-auto">
-                <h2 class="font-medium">${{data.price}}</h2>
-                <div class="font-medium">
-                    <label for="">Quantity</label>
-                    <input type="number" min="1" max="50" value="1" class="w-[50px] p-1 outline-none text-center">
+                <p class="font-medium">Unit Price</p>
+                <p class="font-medium">${{data.price}}</p>
+            </div>
+
+            <div class="flex justify-between items-center px-5 mt-auto">
+                <div>
+                    <h3>Total Price</h3>
+                    <p>${{total}}</p>
+                </div>
+
+                <div>
+                    <h3 class="text-center">Quantity</h3>
+                    <div class="flex justify-center items-center gap-3">
+                        <button mat-icon-button (click)="minus()">
+                            <mat-icon>remove</mat-icon>
+                        </button>
+                        <p>${{quantity}}</p>
+                        <button mat-icon-button (click)="add()">
+                            <mat-icon>add</mat-icon>
+                        </button>
+                    </div>
                 </div>
             </div>
-            <div class="flex justify-between text-white mt-auto pb-5">
+            <div class="flex justify-end text-white mt-auto pb-5">
                 <button class="py-1 px-6 bg-[#005DA4] flex gap-3 justify-center items-center" (click)="addToCart(data)">
                     <i class="fa-solid fa-cart-shopping"></i>
                     <p>Add to Cart</p>
                 </button>
-                <button class="py-1 px-5 bg-blue-500 text-white flex gap-3 justify-center items-center" (click)="closeModal()">
+                <!-- <button class="py-1 px-5 bg-blue-500 text-white flex gap-3 justify-center items-center" (click)="closeModal()">
                     <i class="fa-solid fa-xmark"></i>
                     <p>Close</p>
-                </button>
+                </button> -->
             </div>
         </div>
     </div>
