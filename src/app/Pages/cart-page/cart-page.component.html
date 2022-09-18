@@ -1,49 +1,38 @@
 <section>
-    <div class="cart-container max-w-[1440px] m-auto pt-8">
+    <div class="cart-container max-w-[1240px] m-auto pt-8">
         <div class="context">
             <div class="cart-title ">
 
-                <div class="w-1/4 text-trinityBlue font-thin uppercase border-b border-trinityBlue">
+                <div class="w-1/4 text-trinityBlue font-thin uppercase border-b border-trinityBlue text-xl">
                     Cart Page
                 </div>
             </div>
-            <div class="cart-grid">
+            <div class="cart-grid gap-20">
                 <div class="cartItem-grid">
                     <div class="cartItem-wrapper" *ngFor="let item of cartItems">
                         <div class="cartItem">
                            <div class="cartItem-sec1">
                              <div class="cartImg">
                                 <div class="cartItem-img-wrapper">
-                                    <img src="{{item.product.image}}" alt="Image of item">
+                                    <img src="{{base+item.product.image}}" alt="Image of item">
                                 </div>
-                                <svg width="48" height="8" viewBox="0 0 48 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M40 4C40 6.20914 41.7909 8 44 8C46.2091 8 48 6.20914 48 4C48 1.79086 46.2091 0 44 0C41.7909 0 40 1.79086 40 4ZM0 4.75H44V3.25H0V4.75Z" fill="#6D6D6D"/>
-                                    </svg>
+                               
                             </div>
-                            <p class="name">
+                            <p class="text-trinityBlue font-semibold ">
                                 {{item.product.name}}
                                 
                             </p>
                            </div>
                             <div class="cartItem-sec2">
-                                <div class="quantity">
+                                <div class="flex flex-col items-center">
+                                    <button class="increase text-gray-400 hover:text-gray-700" (click)="increaseQty(item)">
+                                        <i class="fa-sharp fa-solid fa-chevron-up text-xl"></i>
+                                    </button>
                                     <span class="count">{{item.quantity}}</span>
-                                    <div class="qantity-ctrls">
-                                        <button class="increase" (click)="increaseQty(item)">
-                                            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <circle cx="9.5" cy="9.5" r="9.5" fill="#6D6D6D"/>
-                                                <path d="M3.12983 9.17016L14.8745 9.17018" stroke="white" stroke-width="2"/>
-                                                <path d="M9.05299 3.35418L9.05302 15.0453" stroke="white" stroke-width="2"/>
-                                                </svg>
-                                        </button>
-                                        <button class="decrease" (click)="decreaseQty(item)">
-                                            <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <circle cx="9.5" cy="10.1998" r="9.5" fill="#6D6D6D"/>
-                                                <path d="M3.12983 9.86999L14.8745 9.87001" stroke="white" stroke-width="2"/>
-                                                </svg>
-                                                
-                                        </button>
-                                    </div>
+
+                                    <button class="decrease text-gray-400 hover:text-gray-700" (click)="decreaseQty(item)">
+                                        <i class="fa-sharp fa-solid fa-chevron-down text-xl"></i>
+                                    </button>
                                 </div>
                             </div>
                             <div class="cartItem-sec3">
@@ -62,7 +51,7 @@
                         </div>
                     </div>
                     <div class="cartItem-footer">
-                        <div class="subtotal">
+                        <div class="subtotal mb-2">
                             <p>SubTotal: <span class="bold">{{cartService.getCartTotal()| currency}}</span></p>
                         </div>
                         <div class="cta">

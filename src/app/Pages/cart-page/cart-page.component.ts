@@ -6,6 +6,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 // import { UserService } from '../../Services/user.service';
 import { CartService } from '../../Services/cart.service';
 import { CartItem } from '../../Interfaces/cartItem';
+import { DOMAIN } from 'src/environments/environment';
 
 
 @Component({
@@ -16,7 +17,7 @@ import { CartItem } from '../../Interfaces/cartItem';
 export class CartPageComponent implements OnInit {
    
   cartItems: CartItem[] = [];
-  
+  base = DOMAIN;
   constructor(
     private router: Router,
     public dialog: MatDialog,

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { shareReplay } from 'rxjs';
 import { CartItem } from '../Interfaces/cartItem';
+import { Product } from '../Interfaces/product';
+import { ProductService } from './product.service';
 // import { ProductInterface } from '../interfaces/product';
 // import { SidesInterface } from '../interfaces/sides';
 // import { DataService } from './data.service';
@@ -15,6 +17,8 @@ export class CartService {
      * Converts the cart in `localStorage` to an array
      * @returns {CartItem[]} Cart from local storage as an array
      */
+    constructor(private productService: ProductService){}
+
     getCart(): CartItem[] {
         if(!localStorage.getItem('cart')){
           localStorage.setItem('cart', JSON.stringify([]));
@@ -33,52 +37,45 @@ export class CartService {
      */
     addCartItem(item: CartItem): void {
         // Get all the products
-        // this.api.getAllProducts().subscribe((resp: ProductInterface[]) => {
-        //     let products = resp;
+        this.productService.getAllProduct().subscribe((response) => {
+            let products = response.data;
 
-        //     let currentCart: CartItem[] = [];
+            let currentCart: CartItem[] = [];
 
-        //     // If `cart` is found in localStorage we store it in `currentCart`
-        //     if (!!localStorage.getItem('cart')) {
-        //         currentCart = this.getCart();
-        //     }
+            // If `cart` is found in localStorage we store it in `currentCart`
+            if (!!localStorage.getItem('cart')) {
+                currentCart = this.getCart();
+            }
 
-        //     // Search for duplicate cart item
-        //     let duplicateCartItem: CartItem|undefined = currentCart.find((cartItem: CartItem) => {
-        //             if(cartItem.product.id == item.product.id){
-        //                 if(cartItem.sides.length == item.sides.length){
-        //                     if(cartItem.sides.every((element) => item.sides.includes(element))){
-        //                         return true;
-        //                     }
-        //                 }
-        //             }
-        //             return false;
-        //         }
-        //     );
+            // Search for duplicate cart item
+            let duplicateCartItem: CartItem|undefined = currentCart.find((cartItem: CartItem) => {
+                    return cartItem.product._id == item.product._id
+                }
+            );
 
-        //     // If duplicate cart item is found we increment the amount instead of inserting a new product to the cart
-        //     if (duplicateCartItem) {
-        //         let amt = duplicateCartItem.quantity;
-        //         duplicateCartItem.quantity = amt + 1;
+            // If duplicate cart item is found we increment the amount instead of inserting a new product to the cart
+            if (duplicateCartItem) {
+                let amt = duplicateCartItem.quantity;
+                duplicateCartItem.quantity = amt + 1;
 
-        //     } else {
-        //         // Finding the product being added to the cart
-        //         // let product: ProductInterface|undefined = products.find(
-        //         //     (product: any) => product.id == item.id
-        //         // );
+            } else {
+                // Finding the product being added to the cart
+                // let product: ProductInterface|undefined = products.find(
+                //     (product: any) => product.id == item.id
+                // );
 
-        //         // Add the product found to the cart with `amount` set to `1` if duplicate not found
-        //         // This needs to be updated to accomodate the side orders
-        //         currentCart.push(
-        //           item
-        //         );
-        //     }
+                // Add the product found to the cart with `amount` set to `1` if duplicate not found
+                // This needs to be updated to accomodate the side orders
+                currentCart.push(
+                  item
+                );
+            }
 
-        //     // Updating the cart in localStorage with the new information
-        //     this.updateCart(currentCart);
+            // Updating the cart in localStorage with the new information
+            this.updateCart(currentCart);
 
-        //     // Cart Notification function goes here
-        // });
+            // Cart Notification function goes here
+        });
     }
 
     /**
