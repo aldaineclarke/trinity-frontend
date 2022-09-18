@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 @Injectable({
   providedIn: 'root'
 })
-export class MessagesService {
+export class MessageService {
 
   constructor() { }
 
