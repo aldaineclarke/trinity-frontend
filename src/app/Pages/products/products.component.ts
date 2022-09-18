@@ -71,12 +71,10 @@ export class ProductsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(Object.keys(result).length > 0){
-
-        if(result){
+      if(result){
           this.createTicket(result);
         }
-      }
+      
     })
 
   }
