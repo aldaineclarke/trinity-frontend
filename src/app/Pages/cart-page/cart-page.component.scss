@@ -31,7 +31,8 @@
     font-family: "Poppins", sans-serif;
     width: 100%;
     border-radius: 5px;
-    box-shadow: 5px 4px 12px rgb(0, 56, 255, 27%);
+    // box-shadow: 5px 4px 12px rgb(0, 56, 255, 27%);
+    @apply  shadow-[5px_4px_12px] shadow-trinityBlue;
 }
 .cartSummary-grid.sharp-bx{
     min-height:10rem;
@@ -179,7 +180,6 @@
 .cta .back{
     display:flex;
     gap: 2rem;
-    color: #6D6D6D;
     align-items: center;
     background-color:transparent;
     border:none;
