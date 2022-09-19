@@ -82,7 +82,7 @@ export class CartService {
      * Removes and item from the cart using it's id
      * @param itemId The id of the product/cart item to be removed
      */
-    removeCartItem(itemId: number): any[] {
+    removeCartItem(itemId: string): any[] {
         const cart = this.getCart();
         const productId = cart.findIndex(
             (cartItem: CartItem) => cartItem.id == itemId
@@ -106,7 +106,7 @@ export class CartService {
         return this.getCart().length ?? 0
     }
 
-    updateCartItemQuantity(cartID:number, value:number){
+    updateCartItemQuantity(cartID:string, value:number){
         const cartItems = this.getCart();
         cartItems.forEach(item =>{
             if(item.id == cartID) {
