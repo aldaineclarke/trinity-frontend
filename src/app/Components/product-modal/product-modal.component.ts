@@ -3,6 +3,7 @@ import { Component, OnInit, Inject, InjectionToken } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CartService } from 'src/app/Services/cart.service';
 import { CartItem } from 'src/app/Interfaces/cartItem';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product-modal',
@@ -24,9 +25,6 @@ export class ProductModalComponent implements OnInit {
 
   closeModal(){
     this.matDialogRef.close()
-  }
-  check(){
-    alert('pumpum')
   }
 
   add(){
@@ -51,9 +49,7 @@ export class ProductModalComponent implements OnInit {
       totalPrice: this.total,
     }
     this.cartService.addCartItem(this.cartItem);
-    console.log(
-      this.cartItem
-    );
+    this.closeModal()
     
   }
 
