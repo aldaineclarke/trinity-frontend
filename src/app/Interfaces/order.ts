@@ -3,6 +3,6 @@ export interface Order{
     _id:string;
     email:string;
     total:string;
-    products:CartItem[];
+    items:CartItem[];
     createdAt:string;
 }
