@@ -11,6 +11,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatIconModule} from '@angular/material/icon';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 const MaterialComponents = [
     MatButtonModule,
@@ -25,6 +26,7 @@ const MaterialComponents = [
     MatDatepickerModule,
     MatNativeDateModule,
     MatIconModule,
+    MatPaginatorModule,
 ]
 
 @NgModule({
