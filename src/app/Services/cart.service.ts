@@ -56,7 +56,7 @@ export class CartService {
             // If duplicate cart item is found we increment the amount instead of inserting a new product to the cart
             if (duplicateCartItem) {
                 let amt = duplicateCartItem.quantity;
-                duplicateCartItem.quantity = amt + 1;
+                duplicateCartItem.quantity = amt + item.quantity;
 
             } else {
                 // Finding the product being added to the cart
