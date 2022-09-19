@@ -50,12 +50,12 @@
 
         
 
-        <mat-tab-group class="mt-40">
+        <mat-tab-group class="mt-40 border-blue-300 border-b">
             <mat-tab label="{{cat.name}}"
             *ngFor="let cat of categories; let catProd of products"
             >
                 <!-- <div class="grid grid-cols-3 gap-3" *ngIf="cat._id == '63248cef3da871f98d0d6b02'"> -->
-                <div class="grid grid-cols-3 gap-3">
+                <div class="grid grid-cols-3 gap-5 my-5">
                    <div *ngFor="let prod of products;">
 
                         <app-product-card [productsData]="prod"

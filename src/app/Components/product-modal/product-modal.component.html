@@ -31,7 +31,7 @@
                         <button mat-icon-button (click)="minus()">
                             <mat-icon>remove</mat-icon>
                         </button>
-                        <p>${{quantity}}</p>
+                        <p>{{quantity}}</p>
                         <button mat-icon-button (click)="add()">
                             <mat-icon>add</mat-icon>
                         </button>
@@ -39,14 +39,12 @@
                 </div>
             </div>
             <div class="flex justify-end text-white mt-auto pb-5">
-                <button class="py-1 px-6 bg-[#005DA4] flex gap-3 justify-center items-center" (click)="addToCart(data)">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <p>Add to Cart</p>
+                <button mat-raised-button color="primary" (click)="addToCart(data)">
+                    <div class="py-1 px-6 bg-[#005DA4] flex gap-3 justify-center items-center">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <p>Add to Cart</p>
+                    </div>
                 </button>
-                <!-- <button class="py-1 px-5 bg-blue-500 text-white flex gap-3 justify-center items-center" (click)="closeModal()">
-                    <i class="fa-solid fa-xmark"></i>
-                    <p>Close</p>
-                </button> -->
             </div>
         </div>
     </div>
