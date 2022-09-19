@@ -50,38 +50,36 @@
 
         
 
-        <mat-tab-group class="mt-40 border-blue-300 border-b">
+        <mat-tab-group class="mt-40 border-blue-300 border-b relative">
             <mat-tab label="{{cat.name}}"
             *ngFor="let cat of categories; let catProd of products"
             >
                 <!-- <div class="grid grid-cols-3 gap-3" *ngIf="cat._id == '63248cef3da871f98d0d6b02'"> -->
-                <div class="grid grid-cols-3 gap-5 my-5">
-                   <div *ngFor="let prod of products;">
+                <div class="grid grid-cols-3 gap-5 mt-5 mb-20 relative">
+                   <div *ngFor="let prod of products;" class="relative">
 
                         <app-product-card [productsData]="prod"
                         *ngIf="prod.category == cat._id"
                         >
                         </app-product-card>
 
+                        <!-- <div class="absolute -bottom-20 right-0">
+                            <mat-paginator [length]="prod.category.length"
+                            [pageSize]="10"
+                            [pageSizeOptions]="[5, 10, 25, 100]"
+                            aria-label="Select page">
+                            </mat-paginator>
+                        </div> -->
                    </div>
+                   <div class="absolute -bottom-20 right-0">
+                        <mat-paginator [length]="5"
+                        [pageSize]="10"
+                        [pageSizeOptions]="[5, 10, 25, 100]"
+                        aria-label="Select page">
+                        </mat-paginator>
+                    </div>
                 </div>
             </mat-tab>
-
-            <!-- <mat-tab label="Catergory 2">
-                <div class="grid grid-cols-3 gap-3">
-                    <app-product-card [productsData]="prod"
-                    *ngFor="let prod of products"
-                    ></app-product-card>
-                </div>
-            </mat-tab>
-
-            <mat-tab label="Category 3">
-                <div class="grid grid-cols-3 gap-3">
-                    <app-product-card [productsData]="prod"
-                    *ngFor="let prod of products"
-                    ></app-product-card>
-                </div>
-            </mat-tab> -->
         </mat-tab-group>
     </div>
 </section>
