@@ -26,7 +26,7 @@ export class CartPageComponent implements OnInit {
     public cartService: CartService
   ) {}
 
-  updateQuantity(cartID:number, value:number){
+  updateQuantity(cartID:string, value:number){
     this.cartService.updateCartItemQuantity(cartID, value);
 
     this.cartItems = this.cartService.getCart();
@@ -42,7 +42,7 @@ export class CartPageComponent implements OnInit {
     window.history.back();
   }
 
-  removeItem(id:number){
+  removeItem(id:string){
     this.cartService.removeCartItem(id);
     this.cartItems = this.cartService.getCart();
   }
