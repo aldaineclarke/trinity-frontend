@@ -2,8 +2,12 @@ import { Component, Inject, Input, OnInit, ViewChild, ViewContainerRef } from '@
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
 import { Router } from '@angular/router';
-import { CheckoutComponent } from 'src/app/Pages/checkout/checkout.component';
-import Swal from 'sweetalert2';
+import { CartItem } from 'src/app/Interfaces/cartItem';
+import { Order } from 'src/app/Interfaces/order';
+import { CartService } from 'src/app/Services/cart.service';
+import { MessageService } from 'src/app/Services/message.service';
+import { OrderService } from 'src/app/Services/order.service';
+import { DOMAIN } from 'src/environments/environment';
 
 @Component({
   selector: 'app-checkout-form',
@@ -13,14 +17,20 @@ import Swal from 'sweetalert2';
 export class CheckoutFormComponent implements OnInit {
 
   constructor(
-    private router : Router
+    private router : Router,
+    public cartService: CartService,
+    private messageService: MessageService,
+    private orderService: OrderService
   ) { }
 
   // This is used to turn off the matstepper form when the login user form is active
   @ViewChild('stepper') stepper !: MatStepper;
   @Input('switchTrigger') switchTrigger : boolean = false;
 
+  cartItems:CartItem[] = [];
+  orderInfo!:Order;
   emailVal !: string;
+  base = DOMAIN;
 
    emailForm = new FormGroup({
     email : new FormControl('' , [Validators.required, Validators.email])
@@ -55,6 +65,7 @@ export class CheckoutFormComponent implements OnInit {
   })
 
   ngOnInit(): void {
+      this.getCartItems();
   }
 
   checkCardType(){
@@ -67,10 +78,17 @@ export class CheckoutFormComponent implements OnInit {
       expiryDate :new Date,
       cvv: 0
     })
-    this.stepper.next();
-  }else{
-    this.stepper.next();
   }
+  this.createOrder().subscribe({
+    next:(response)=>{
+      this.orderInfo = response.data;
+
+      this.stepper.next();
+    },
+    error:(error)=>{
+      this.messageService.fire("Order Failed",error.error, "error")
+    }
+  })
 
   }
 
@@ -92,32 +110,26 @@ export class CheckoutFormComponent implements OnInit {
     console.log('Paypal' + JSON.stringify(summaryDets));
   }
 
-  Swal.fire(
-    {
-      title:'Order Success!',
-      text: 'Your order has been successfully.',
-      icon: "success",
-      customClass: {
-        container: "swalContainer",
-      },
-
-    })
+    this.messageService.fire("Order Success!","Your order has been sucessfully","success");
 
   }
 
   routeToCart(){
-    Swal.fire(
-      {
-        title:'Order Cancelled!',
-        text: 'Your order has been sucessfully cancelled',
-        icon: "success",
-        customClass: {
-          container: "swalContainer",
-        },
-
-      })
+    this.messageService.fire("Order Cancelled!","Your order has been sucessfully cancelled","success");
     this.router.navigate(['/cart']);
 
+  }
+  createOrder(){
+    let order = {
+      email:"tester@testing.com",
+      items: this.cartItems,
+    }
+    console.log(order);
+    return this.orderService.createOrder(order)
+  }
+
+  getCartItems(){
+   this.cartItems = this.cartService.getCart();
   }
 
 }
