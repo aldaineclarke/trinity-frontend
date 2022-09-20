@@ -10,6 +10,7 @@ import { ProductDisplayComponent } from './Pages/product-display/products-displa
 import { TicketComponent } from './Pages/ticket/ticket.component';
 import { CartPageComponent } from './Pages/cart-page/cart-page.component';
 import { AuthGuard } from './Guards/auth.guard';
+import { OrderAdminComponent } from './Pages/order-admin/order-admin.component';
 
 const routes: Routes = [
 
@@ -44,7 +45,7 @@ const routes: Routes = [
       },
       {
         path:"orders",
-        component: OrderComponent,
+        component: OrderAdminComponent,
       },
       {
         path: "",
