@@ -1,0 +1,85 @@
+<section class="my-[5rem] w-[90%] m-auto grid grid-cols-[2.8fr_7.2fr] gap-10">
+    <aside>
+        <div class="border-2 border-[#70CEEE] shadow-lg shadow-blue-100 min-h-[400px]">
+            <div class="flex gap-3 bg-[#70CEEE] text-white uppercase text-2xl font-bold justify-center items-center p-3">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <h2>What is your query</h2>
+            </div>
+
+            <ul class="text-[#70CEEE] p-10">
+                <li class="flex gap-5 justify-start items-start py-4 border-b border-[#70CEEE] cursor-pointer" *ngFor="let service of services" (click)="openDialog(service)">
+                    <i class="fa-solid fa-caret-right"></i>
+                    <p>{{service.name}}</p>
+                </li>
+               
+            </ul>
+        </div>
+
+        <!-- ///////////////////////////////////// -->
+
+        <!-- <div class="bg-[url('/assets/img/asideAds.png')] mt-10 h-[905px] bg-no-repeat bg- relative"> -->
+        <div class="mt-10 w-fit h-[850px] relative">
+            <img src="/assets/img/asideAds.png" alt="" class="h-full">
+            <div class="text-white w-full h-full backdrop-brightness-[0.3] absolute top-0 uppercase">
+                <p class="font-bold text-5xl pt-40 pb-2 px-20 border-b w-fit">ads</p>
+                <p class="font-bold text-7xl text-center">not</p>
+                <p class="text-8xl font-thin px-2 text-center">down</p>
+                <p class="font-medium text-4xl px-20 border-b w-fit ml-auto">sight</p>
+            </div>
+        </div>
+    </aside>
+
+    <div>
+        <div>
+            <img src="/assets/img/pipeGold.png" alt="" class="w-full">
+        </div>
+        <div class="flex uppercase">
+            <div class="bg-[#005DA4] text-white w-full flex gap-3 items-center p-5">
+                <i class="fa-solid fa-wrench"></i>
+                <p>residential plumbing</p>
+            </div>
+            <div class="bg-blue-500 text-white w-full flex gap-3 items-center p-5">
+                <i class="fa-solid fa-faucet-drip"></i>
+                <p>Commercial plumbing</p>
+            </div>
+            <div class="bg-[#005DA4] text-white w-full flex gap-3 items-center p-5">
+                <i class="fa-solid fa-helmet-safety"></i>
+                <p>Service & repaire</p>
+            </div>
+        </div>
+
+        
+
+        <mat-tab-group class="mt-40 border-blue-300 border-b relative">
+            <mat-tab label="{{cat.name}}"
+            *ngFor="let cat of categories; let catProd of products"
+            >
+                <!-- <div class="grid grid-cols-3 gap-3" *ngIf="cat._id == '63248cef3da871f98d0d6b02'"> -->
+                <div class="grid grid-cols-3 gap-5 mt-5 mb-20 relative">
+                   <div *ngFor="let prod of products;" class="relative">
+
+                        <app-product-card [productsData]="prod"
+                        *ngIf="prod.category == cat._id"
+                        >
+                        </app-product-card>
+
+                        <!-- <div class="absolute -bottom-20 right-0">
+                            <mat-paginator [length]="prod.category.length"
+                            [pageSize]="10"
+                            [pageSizeOptions]="[5, 10, 25, 100]"
+                            aria-label="Select page">
+                            </mat-paginator>
+                        </div> -->
+                   </div>
+                   <div class="absolute -bottom-20 right-0">
+                        <mat-paginator [length]="5"
+                        [pageSize]="10"
+                        [pageSizeOptions]="[5, 10, 25, 100]"
+                        aria-label="Select page">
+                        </mat-paginator>
+                    </div>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</section>

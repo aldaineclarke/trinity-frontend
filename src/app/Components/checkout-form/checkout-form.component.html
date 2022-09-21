@@ -1,0 +1,221 @@
+<div class="yellow-theme">
+  <!-- mat-stepper themePalette didnt work -->
+  <mat-stepper [linear]="true" #stepper>
+    <!--* Email Step -->
+    <!-- <mat-step [stepControl]="emailForm" [editable]="true">
+      <ng-template matStepLabel class="step-label">
+        Client recognition
+      </ng-template>
+
+      <form
+        action=""
+        [formGroup]="emailForm"
+        #EmailForm="ngForm"
+      >
+        <div class="form-flex">
+          <mat-form-field appearance="standard">
+            <mat-label>Enter your email</mat-label>
+            <input
+              type="email"
+              matInput
+              placeholder="example johndoe@mail.com"
+              formControlName="email"
+              required
+            />
+
+            <mat-error *ngIf="email?.errors?.['required']"
+              >Your Email is Required</mat-error
+            >
+            <mat-error *ngIf="email?.errors?.['email']"
+              >Enter a Valid Email</mat-error
+            >
+          </mat-form-field>
+        </div>
+
+        <div class="btn-cont">
+          <button mat-raised-button class="btn btn--sm" matStepperNext>
+            Next
+          </button>
+        </div>
+      </form>
+    </mat-step> -->
+    <!-- Email End -->
+
+    <!--* Card details Step -->
+    <mat-step [stepControl]="cardForm">
+      <form [formGroup]="cardForm" #payForm="ngForm">
+        <ng-template matStepLabel class="step-label">
+          Enter card information</ng-template
+        >
+
+        <mat-label>Enter your card type</mat-label>
+        <div class="radio-cont">
+          <mat-radio-group
+            aria-label="Select an option"
+            formControlName="cardType"
+            class="mat-radio-vert"
+          >
+            <mat-radio-button value="visa">Visa</mat-radio-button>
+            <mat-radio-button value="paypal">Paypal</mat-radio-button>
+            <mat-error
+              *ngIf="cardType?.errors?.['required'] && payForm.submitted"
+              >Your card type is required</mat-error
+            >
+          </mat-radio-group>
+        </div>
+
+        <div *ngIf="cardType?.value == 'visa'">
+          <mat-form-field appearance="fill">
+            <mat-label>Enter card number</mat-label>
+            <input
+              type="number"
+              matInput
+              placeholder="Enter your card number"
+              formControlName="cardNumber"
+              required
+            />
+            <mat-error *ngIf="cardNumber?.errors?.['required']"
+              >Your card type is required</mat-error
+            >
+            <mat-error *ngIf="cardNumber?.errors?.['maxLength']"
+              >Your card number must be 16 characters</mat-error
+            >
+          </mat-form-field>
+          <div>
+            <div>
+              <mat-label>Expiry Date</mat-label>
+            </div>
+            <mat-form-field appearance="fill">
+              <mat-label>Enter CVV</mat-label>
+              <input
+                type="number"
+                matInput
+                placeholder="Enter your CVV"
+                formControlName="cvv"
+                required
+              />
+              <mat-error *ngIf="cvv?.errors?.['required']"
+                >Your cvv is required</mat-error
+              >
+              <mat-error *ngIf="cvv?.errors?.['maxLength']"
+                >Your cvv must be at most 4 characters</mat-error
+              >
+              <mat-error *ngIf="cvv?.errors?.['minLength']"
+                >Your cvv must be at least 3 characters</mat-error
+              >
+            </mat-form-field>
+            <div>
+              <mat-form-field>
+                <mat-label>Enter Expiry Year and Month</mat-label>
+                <input
+                matInput
+                [matDatepicker]="datepicker"
+                placeholder="expiry year and month"
+                formControlName="expiryDate"
+                required />
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="datepicker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #datepicker>
+                  <mat-datepicker-actions>
+                    <button mat-button matDatepickerCancel>Cancel</button>
+                    <button
+                      mat-raised-button
+                      color="primary"
+                      matDatepickerApply
+                    >
+                      Apply
+                    </button>
+                  </mat-datepicker-actions>
+                </mat-datepicker>
+                <mat-error *ngIf="expiryDate?.errors?.['minLength']"
+                >Your expiry date is required</mat-error
+              >
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+        <div class="btn-cont">
+          <button mat-button matStepperPrevious>Back</button>
+          <button
+            mat-raised-button
+            class="btn btn--sm"
+            (click)="checkCardType()"
+          >
+            Next
+          </button>
+        </div>
+      </form>
+    </mat-step>
+    <!-- Card details End -->
+
+    <!--* Confirmation Step -->
+    <mat-step>
+
+      <ng-template matStepLabel class="step-label">
+        Confirm payment</ng-template>
+
+      <div class="order-grid">
+
+        <div class="grid-descrip">
+          <div>
+            <h2 class="descrip-header">Trinity's Plumbing Service's</h2>
+            <hr>
+            <div></div>
+          </div>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque assumenda itaque magnam recusandae. Doloremque voluptatem omnis eum libero dolore reprehenderit perferendis quidem illum facilis, debitis voluptate nobis molestiae. Ullam, excepturi!
+        </div>
+
+        <div class="lg:w-[50vw] min-h-[40vh] border-t-4 border-trinityBlue" *ngIf="orderInfo">
+            <div class="order-top flex justify-between items-center p-4">
+              <h1 class="text-2xl">Order Summary</h1>
+              <div class="flex justify-evenly text-sm gap-4">
+                <p><span class="text-blue-300 mr-2">Order id:</span> <span class="text-darkBlue font-medium">{{orderInfo.total}}</span></p>
+                <p><span class="text-blue-300 mr-2">Order date:</span> <span class="text-darkBlue font-medium">{{orderInfo.createdAt}}</span></p>
+              </div>
+            </div>
+            <div class="order-meta text-center bg-trinityBlue p-4">
+              <h2 class="text-2xl text-white">Thank you for making an order</h2>
+            </div>
+            <div class="order-list p-6">
+                <ul class="border relative min-h-[10vh] p-6">
+                  <span class="uppercase absolute p-1 px-6 bg-white text-gray-400 text-sm left-1/2  top-0 -translate-x-1/2 -translate-y-1/2 border">Receipt</span>
+
+                  <!-- List of Items in Order -->
+                  <li class="flex  gap-4 py-4 border-t border-gray-200 first-of-type:border-none" *ngFor="let item of orderInfo.items" >
+                    <div class="img-wrapper w-[150px]">
+                      <img src="{{base + item.product.image}}" alt="Img of a orderitem">
+                    </div>
+                    <div class="item-details flex-grow flex-col flex justify-center">
+                      <p class="font-medium text-darkBlue">{{item.product.name}}</p>
+                      <p class=" text-gray-400 text-xs">Quantity: {{item.quantity}}</p>
+                    </div>
+                    <div class="price text-center font-semibold flex items-center justify-end text-darkBlue">
+                      <p>{{item.totalPrice | currency }}</p>
+                    </div>
+                  </li>
+                  
+                  <!-- End list of orders -->
+
+                  <p class="absolute p-1 px-6 bg-trinityBlue text-white text-sm right-[-1px]  bottom-0 translate-y-1/2"><span class="text-xs mr-2">Total:</span> <span class="text-white font-semibold text-md">{{orderInfo.total | currency}}</span></p>
+                </ul>
+            </div>
+        </div>
+      </div>
+
+      <div class="btn-cont">
+        <button class="info btn--sm" mat-button matStepperPrevious>
+          Back
+        </button>
+        <button class="btn btn--success btn--sm" (click)="confirmOrder()">
+          Confirm
+        </button>
+        <button class="btn btn--sm btn--danger" (click)="routeToCart()">Cancel</button>
+      </div>
+    </mat-step>
+    <!-- Confirmation End -->
+  </mat-stepper>
+</div>

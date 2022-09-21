@@ -1,0 +1,48 @@
+<section classd="w-[400px]">
+    <div class="form-wrapper">
+        <form [formGroup]="productForm">
+            <legend class="mb-6 text-3xl text-trinityBlue font-extralight">Product Form</legend>
+            <div class="form-group grid gap-6 mb-6">
+                <div class="relative z-0">
+                    <input type="text" id="productName" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-trinityBlue focus:outline-none focus:ring-0 focus:border-trinityBlue peer" placeholder=" " formControlName="name"/>
+                    <label for="productName" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Product Name</label>
+                </div>            
+            </div>
+            <div class="form-group grid gap-6 grid-cols-2 mb-6">
+                <div class="relative z-0">
+                    <input type="file" id="image" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent  dark:text-white focus:outline-none focus:ring-0" placeholder=" " (change)="getFileData($event)"/>
+                    <label for="image" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Product Image</label>
+                </div>            
+                <div class="relative z-0">
+                    <input type="number" id="quantity" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-trinityBlue focus:outline-none focus:ring-0 focus:border-trinityBlue peer" placeholder=" " formControlName="quantity"/>
+                    <label for="quantity" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Quantity</label>
+                </div>            
+            </div>
+            <div class="form-group grid gap-6  mb-6">
+                <div class="relative z-0">
+                    <textarea id="description" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-trinityBlue focus:outline-none focus:ring-0 focus:border-trinityBlue peer" placeholder=" " formControlName="description" ></textarea>
+                    <label for="description" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Product Description</label>
+                </div>
+            </div>
+            <div class="form-group grid gap-6 grid-cols-2  mb-6">
+                <div class="relative z-0">
+                    
+                    <select id="category" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-trinityBlue focus:outline-none focus:ring-0 focus:border-trinityBlue peer" placeholder=" " formControlName="category">
+                        <option>-- Select Category --</option>
+                        <option [value]="category._id" *ngFor="let category of categories">{{category.name}}</option>
+                    </select>
+                    <label for="category" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Category</label>
+                </div>
+                <div class="relative z-0">
+                    <input type="number" id="price" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-trinityBlue focus:outline-none focus:ring-0 focus:border-trinityBlue peer" placeholder=" " formControlName="price"/>
+                    <label for="price" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Price</label>
+                </div>
+            </div>
+            
+            <div class="flex justify-between">
+                <button mat-raised-button type="submit" class="bg-trinityBlue" [mat-dialog-close]="submitData()">Submit</button>
+                <!-- <button mat-raised-button class="bg-gray-500" (click)="closeDialog()">Submit</button> -->
+            </div>
+        </form>
+    </div>
+</section>

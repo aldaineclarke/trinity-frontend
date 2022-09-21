@@ -1,0 +1,79 @@
+header {
+  background: #ffffff;
+  max-height: 25vh;
+  width: 100%;
+  padding-bottom: 1.5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-family: "Inter", sans-serif;
+}
+
+// Logo styling
+.main-logo {
+  width: 53%;
+  height: 62%;
+  object-fit: cover;
+}
+
+// containfer for logo styling
+.logo-cont {
+  width: 100%;
+  height: 100%;
+  padding-left: 3%;
+}
+
+// main containers in header styling
+.logo-cont,
+.main-nav,
+.form-acc {
+  width: 33%;
+  margin-top: 2%;
+}
+
+// navigation links  styling
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-links > div > li {
+  list-style-type: none;
+  color: #005da4;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+// Form accounts container styling
+.form-acc {
+  display: flex;
+  gap: 8%;
+  padding-left: 15%;
+}
+
+// cart container icon
+.cart-cont {
+  position: relative;
+  margin-top: -3px;
+}
+
+// cart icon styling
+.bi-cart-fill {
+  color: #005da4;
+}
+
+// badge for cart icon styling
+.badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: red;
+  color: whitesmoke;
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

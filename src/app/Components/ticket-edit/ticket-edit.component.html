@@ -1,0 +1,50 @@
+<section classd="w-[400px]">
+    <div class="form-wrapper">
+        <form [formGroup]="ticketForm">
+            <legend class="mb-6 text-3xl text-trinityBlue font-extralight">Ticket Form</legend>
+            <div class="form-group grid gap-6 mb-6">
+                <div class="relative z-0">
+                    <input type="text" id="fname" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-trinityBlue focus:outline-none focus:ring-0 focus:border-trinityBlue peer" placeholder=" " formControlName="clientName"/>
+                    <label for="fname" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Client Name</label>
+                </div>            
+            </div>
+            <div class="form-group grid gap-6 mb-6">
+                <div class="relative z-0">
+                    <input type="email" id="email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-trinityBlue focus:outline-none focus:ring-0 focus:border-trinityBlue peer" placeholder=" " formControlName="clientEmail"/>
+                    <label for="email" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Client Email</label>
+                </div>            
+            </div>
+            <div class="form-group grid gap-6  mb-6">
+                <div class="relative z-0">
+                    <textarea id="address" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-trinityBlue focus:outline-none focus:ring-0 focus:border-trinityBlue peer" placeholder=" " formControlName="clientAddress" ></textarea>
+                    <label for="address" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Client Address</label>
+                </div>
+            </div>
+            <div class="form-group grid gap-6 grid-cols-2  mb-6">
+                <div class="relative z-0">
+                    <select id="plumber" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-trinityBlue focus:outline-none focus:ring-0 focus:border-trinityBlue peer" placeholder=" " formControlName="plumber">
+                        <option>-- Select Plumber --</option>
+                        <option [value]="plumber._id" *ngFor="let plumber of plumbers">{{plumber.plumbername}}</option>
+                    </select>
+                    <label for="plumber" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Plumber</label>
+                </div>
+                <div class="relative z-0">
+                    <select id="services" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-trinityBlue focus:outline-none focus:ring-0 focus:border-trinityBlue peer" placeholder=" " formControlName="service">
+                        <option>-- Select Services --</option>
+                        <option [value]="service._id" *ngFor="let service of services">{{service.name}}</option>
+
+                    </select>
+                    <label for="services" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Services</label>
+                </div>
+            </div>
+            <div class="form-group grid gap-6  mb-6">
+                <div class="relative z-0">
+                    <textarea id="notes" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-trinityBlue focus:outline-none focus:ring-0 focus:border-trinityBlue peer" placeholder=" " formControlName="clientNote"></textarea>
+                    <label for="notes" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Notes</label>
+                </div>
+                
+            </div>
+            <button mat-raised-button type="submit" class="bg-trinityBlue" [mat-dialog-close]="submitData()">Submit</button>
+        </form>
+    </div>
+</section>

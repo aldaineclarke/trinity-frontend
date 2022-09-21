@@ -1,0 +1,40 @@
+th:not(:first-of-type){
+    @apply uppercase font-thin text-gray-400 text-start;
+}
+
+td{
+    @apply pt-4;
+}
+td:not(:first-of-type){
+    @apply text-start  text-sm font-thin text-gray-400;
+}
+
+.editMode{
+    i{
+        display:block;
+    }
+    input{
+        position:relative
+    }
+
+}
+
+.createMode input{
+    @apply border-b border-trinityBlue;
+}
+    
+
+table td{
+    i{
+        display:none;
+    }
+    cursor:context-menu;
+    input:focus{
+        outline:none;
+        @apply text-trinityBlue;
+    }
+    input:disabled{
+        background-color:white;
+    }
+
+}

@@ -1,0 +1,52 @@
+<section class="min-h-[50vh] flex justify-center items-center">
+  <div class="main-container p-20">
+    <div class="log">
+      <div class="header">
+        <h4>SIGN IN</h4>
+
+        <!-- -->
+      </div>
+
+      <form [formGroup]="plumForm" (submit)="submit()">
+        
+        <div class="form-group">
+          <div class="errors font-thin text-red-600">
+            <span class="error" *ngIf="(createControl['email']?.touched  && createControl['email']?.errors?.['required'])"> This field is required</span>
+          <span class="error" *ngIf="(createControl['email']?.touched && createControl['email']?.errors?.['pattern'])"> Input not a valid email address</span>
+          
+          </div>
+          <label for="email">Email</label><br />
+          <input
+         
+            type="email"
+            id="email"
+            name="email"
+            formControlName="email"
+            required
+          /><br />
+        </div>
+        <div class="errors">
+          <span class="error font-thin text-red-600" *ngIf="(createControl['password']?.touched  &&  createControl['password']?.errors?.['required'])"> password is required</span>
+
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label><br />
+          <input
+          
+            type="password"
+            id="password"
+            name="password"
+            formControlName = "password"
+            required
+          /><br />
+        </div>
+
+        <div class="buwrapper mt-2">
+          <button type="submit" [disabled]="!plumForm.valid"   class="bg-trinityBlue text-white py-1 px-4 rounded hover:bg-blue-400">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+
+</section>

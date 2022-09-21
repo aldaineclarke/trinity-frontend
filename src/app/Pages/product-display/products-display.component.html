@@ -1,0 +1,52 @@
+<section>
+    <table class="w-full">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Category</th>
+                <th>Inventory</th>
+                <th>Rating</th>
+                <th>Price</th>
+                <th>Actions</th>
+                <th><button class="rounded-3xl h-10 w-10  bg-trinityBlue inline-flex items-center justify-center text-white" title="Add a new plumber" (click)="openDialog()"><i class="fa-solid fa-plus"></i></button></th>
+            </tr>
+        </thead>
+        <tbody #editableForms>
+            <!-- Tells angular to add the class with same name once editMode is true -->
+            <tr *ngFor="let product of products">
+                <td class="cursor">
+                    <div class="prod-name flex gap-2 items-center">
+                        <img src="{{base + product.image}}" class="h-10 w-10 rounded-lg" alt="This is an alternate image of a product">
+                        <p>{{product.name}}</p>
+                    </div>
+                </td>
+                <td class="cursor">
+                    <p>{{getCategoryNameFromId(product.category)}}</p>
+                </td>
+
+                <td class="cursor">
+                    <p>{{product.quantity}}</p>
+                </td>
+
+                <td class="cursor">
+                    <p>{{product.rating}}</p>
+                </td>
+                <td class="cursor">
+                    <p>{{product.price | currency:"USD"}}</p>
+                </td>
+                <td>
+                    <div class="actions flex gap-2">
+                        <button class="btn btn--info btn--sm" (click)="openDialog(product._id)">View</button>
+                       
+                        <button class="btn btn--danger btn--sm" (click)="deleteProduct(product._id)">Delete</button>
+                    </div>
+
+                </td>
+                <input type="hidden" name="_id" [value] = "product._id">
+
+            </tr>
+           
+        </tbody>
+    </table>
+
+</section>
