@@ -12,6 +12,7 @@ import { HandlerService } from './handler.service';
 export class OrderService {
 
   ENDPOINT = BASE_URL+"/orders/";
+  ORDER_STATUS = ["COMPLETED","CANCELLED","PENDING"];
 
   constructor(private _http: HttpClient, private handler:HandlerService) { }
 
