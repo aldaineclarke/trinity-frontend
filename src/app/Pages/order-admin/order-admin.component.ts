@@ -34,7 +34,8 @@ export class OrderAdminComponent implements OnInit {
     console.log(this.selectedOrder)
     const dialogRef = this.dialog.open(OrderEditComponent, {
       width: '40%',
-      minWidth:'400px',
+      minWidth:'55vw',
+      maxHeight:"80vh",
       data: this.selectedOrder
     });
 
