@@ -25,6 +25,7 @@ import { CartPageComponent } from './Pages/cart-page/cart-page.component';
 import { TicketEditComponent } from './Components/ticket-edit/ticket-edit.component';
 import { ProductEditComponent } from './Components/product-edit/product-edit.component';
 import { OrderAdminComponent } from './Pages/order-admin/order-admin.component';
+import { OrderEditComponent } from './Components/order-edit/order-edit.component';
 
 
 
@@ -49,6 +50,7 @@ import { OrderAdminComponent } from './Pages/order-admin/order-admin.component';
     TicketEditComponent,
     ProductEditComponent,
     OrderAdminComponent,
+    OrderEditComponent,
   ],
 
   imports: [
