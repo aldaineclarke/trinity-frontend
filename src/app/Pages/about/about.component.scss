@@ -1,0 +1,101 @@
+.about {
+  min-height: 100vh;
+  width: 100%;
+  padding-top: 30px;
+}
+
+// Banner container styling
+.banner-cont {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+// Banner styling
+.banner {
+  background-image: url("/assets/plumbing_bg.jpg");
+  width: 95%;
+  height: 35vh;
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.45);
+  background-blend-mode: multiply;
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+}
+
+.banner-text {
+  padding-left: 35px;
+}
+
+.banner-text > p {
+  font-size: 49px;
+  color: #fff;
+}
+
+// ************************** Content section styling ******************************
+
+// Main contents container styling
+.main-contents {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+}
+
+// secondary box for contents styling
+.content-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 55%;
+  font-family: "Inter", sans-serif;
+}
+
+// Title styling
+.title > p {
+  font-weight: bold;
+  font-size: 28px;
+  margin-bottom: 13px;
+  color: #01508c;
+}
+
+// 1st paragraph styling
+.parag-1 > p {
+  margin-bottom: 15px;
+  word-spacing: 3px;
+  font-size: 18px;
+  line-height: 26px;
+  text-align: center;
+}
+
+// 2nd paragraph styling
+.parag-2 > p {
+  margin-bottom: 15px;
+  word-spacing: 3px;
+  font-size: 18px;
+  line-height: 26px;
+  text-align: center;
+}
+
+// 3rd paragraph styling
+.parag-3 > p {
+  word-spacing: 3px;
+  font-size: 18px;
+  line-height: 26px;
+  text-align: center;
+  margin-bottom: 90px;
+}
+
+// Slogan
+.slogan > p {
+  font-size: 20px;
+  color: #607f96;
+  font-weight: bold;
+  margin-bottom: 20px;
+}

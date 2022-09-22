@@ -26,8 +26,7 @@ import { TicketEditComponent } from './Components/ticket-edit/ticket-edit.compon
 import { ProductEditComponent } from './Components/product-edit/product-edit.component';
 import { OrderAdminComponent } from './Pages/order-admin/order-admin.component';
 import { OrderEditComponent } from './Components/order-edit/order-edit.component';
-
-
+import { AboutComponent } from './Pages/about/about.component';
 
 @NgModule({
   entryComponents:[ProductModalComponent],
@@ -51,6 +50,7 @@ import { OrderEditComponent } from './Components/order-edit/order-edit.component
     ProductEditComponent,
     OrderAdminComponent,
     OrderEditComponent,
+    AboutComponent,
   ],
 
   imports: [

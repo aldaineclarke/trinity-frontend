@@ -11,12 +11,17 @@ import { TicketComponent } from './Pages/ticket/ticket.component';
 import { CartPageComponent } from './Pages/cart-page/cart-page.component';
 import { AuthGuard } from './Guards/auth.guard';
 import { OrderAdminComponent } from './Pages/order-admin/order-admin.component';
+import { AboutComponent } from './Pages/about/about.component';
 
 const routes: Routes = [
 
   {
     path:"products",
     component: ProductsComponent,
+  },
+  {
+    path:"about-us",
+    component:AboutComponent,
   },
   {
     path:"cart",
