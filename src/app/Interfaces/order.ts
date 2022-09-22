@@ -4,5 +4,6 @@ export interface Order{
     email:string;
     total:string;
     items:CartItem[];
-    createdAt:string;
+    createdAt:Date;
+    status:string;
 }

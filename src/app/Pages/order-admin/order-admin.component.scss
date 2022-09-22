@@ -1,0 +1,41 @@
+th{
+    @apply uppercase font-thin text-gray-400 text-start;
+}
+
+td{
+    @apply pt-4;
+}
+td{
+    @apply text-start  text-sm font-thin text-gray-400;
+}
+
+.editMode{
+    i{
+        display:block;
+    }
+    input{
+        position:relative
+    }
+
+}
+
+.createMode input{
+    @apply border-b border-trinityBlue;
+}
+    
+
+table td{
+    i{
+        display:none;
+    }
+    cursor:context-menu;
+    input:focus, select:focus, textarea:focus{
+        outline:none;
+        
+        @apply text-trinityBlue;
+    }
+    input:disabled{
+        background-color:white;
+    }
+
+}
